@@ -26,7 +26,9 @@
    - 발신 도메인 인증 (SPF/DKIM/DMARC) — 스팸함 방지에 필수
    - Audience(구독자 목록) 생성, 옵트인 가입 폼 연결 — 신규 구독자는 더블 옵트인으로 최종 동의해야 목록에 추가되도록 설정
    - API 키 발급
-2. **환경변수 설정**: `.env.example`을 참고해 `RESEND_API_KEY`, `SENDER_EMAIL`, `PUBLISHER_EMAIL`, `SUBSCRIBER_AUDIENCE_ID`를 실제 값으로 설정 (레포에 커밋하지 말 것)
+2. **claude.ai/code 환경 설정** (`.env.example` 참고): 메시지 입력창 위 "☁️ Default" 칩 클릭 → 드롭다운에서 **기존** "Default" 환경에 마우스를 올려 나타나는 톱니바퀴(⚙️) 아이콘 클릭 (하단의 "Add cloud environment"는 새 환경을 만드는 것이라 다른 환경이 되므로 누르지 말 것)
+   - **Environment variables** 칸(.env 형식)에 `SENDER_EMAIL`, `PUBLISHER_EMAIL`, `SUBSCRIBER_AUDIENCE_ID` 추가 — 이 칸은 환경을 쓰는 모든 사람에게 값이 보이므로 비밀값은 넣지 않는다
+   - **API credentials** 섹션(Pro/Max 플랜, 기존 환경 편집 시에만 노출)에 Resend API 키를 등록: Allowed websites=`api.resend.com`, Credential type=Bearer, 헤더 Name=`Authorization`/Prefix=`Bearer`/Value=키 값. 이렇게 하면 세션이나 코드가 키 값을 직접 보지 못하고, 에이전트 프록시가 `api.resend.com`으로 나가는 요청에만 자동으로 인증 헤더를 붙여준다
 3. **Routine 등록**: 위 ①②를 각각 cron 트리거로 등록 (예: `0 22 * * *` UTC = 매일 07:00 KST)
 4. **시범 실행**: Routine을 스케줄 등록하기 전에 수동 실행(fire)으로 초안 생성→미리보기 수신→승인 클릭→고객 발송까지 전체 흐름을 먼저 검증
 

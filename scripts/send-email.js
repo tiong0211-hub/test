@@ -7,23 +7,29 @@ const { toPlainText } = require('./render-newsletter');
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const RESEND_BROADCASTS_URL = 'https://api.resend.com/broadcasts';
 
-function requireEnv(name) {
-  const value = process.env[name];
-  if (!value) throw new Error(`Missing required environment variable: ${name}`);
-  return value;
+/**
+ * Resend API 키는 이 코드가 직접 다루지 않는다. Claude Code 클라우드 환경의
+ * "API credentials"(api.resend.com용 Bearer 자격증명)로 등록해두면, 에이전트
+ * 프록시가 이 세션에서 나가는 요청에 실제 키를 자동으로 붙여준다 — 키 값은
+ * 세션/환경변수/코드 어디에도 노출되지 않는다.
+ * 로컬 개발 등 프록시가 없는 환경에서만 RESEND_API_KEY를 환경변수로 넘겨
+ * 수동으로 Authorization 헤더를 채울 수 있게 폴백을 남겨둔다.
+ */
+function authHeaders(apiKey = process.env.RESEND_API_KEY) {
+  return apiKey ? { Authorization: `Bearer ${apiKey}` } : {};
 }
 
 /**
  * Sends the draft newsletter (as a preview) to the publisher's own inbox for review.
  * Uses Resend's transactional /emails endpoint (single recipient).
  */
-async function sendPreview({ to, subject, html, apiKey = process.env.RESEND_API_KEY, from = process.env.SENDER_EMAIL }) {
-  requireEnvOrThrow({ apiKey: 'RESEND_API_KEY', from: 'SENDER_EMAIL' }, { apiKey, from });
+async function sendPreview({ to, subject, html, apiKey, from = process.env.SENDER_EMAIL }) {
+  requireEnvOrThrow({ from: 'SENDER_EMAIL' }, { from });
 
   const res = await fetch(RESEND_API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      ...authHeaders(apiKey),
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -51,18 +57,18 @@ async function sendBroadcast({
   audienceId = process.env.SUBSCRIBER_AUDIENCE_ID,
   subject,
   html,
-  apiKey = process.env.RESEND_API_KEY,
+  apiKey,
   from = process.env.SENDER_EMAIL,
 }) {
   requireEnvOrThrow(
-    { apiKey: 'RESEND_API_KEY', from: 'SENDER_EMAIL', audienceId: 'SUBSCRIBER_AUDIENCE_ID' },
-    { apiKey, from, audienceId }
+    { from: 'SENDER_EMAIL', audienceId: 'SUBSCRIBER_AUDIENCE_ID' },
+    { from, audienceId }
   );
 
   const createRes = await fetch(RESEND_BROADCASTS_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${apiKey}`,
+      ...authHeaders(apiKey),
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -81,7 +87,7 @@ async function sendBroadcast({
 
   const sendRes = await fetch(`${RESEND_BROADCASTS_URL}/${broadcast.id}/send`, {
     method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}` },
+    headers: authHeaders(apiKey),
   });
 
   if (!sendRes.ok) {
