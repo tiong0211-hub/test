@@ -1,14 +1,15 @@
 <!--
-  Plant Engineer Daily Insight - 뉴스레터 템플릿
+  Plant Engineer Daily Insight - 뉴스레터 템플릿 (매거진 스타일)
 
   치환할 플레이스홀더:
     {{DATE}}                - 발행일 (예: 2026년 9월 8일)
+    {{ISSUE_NO}}             - 발행 호수 (예: 001) - data/history.json 항목 수 기준
     {{CATEGORY}}            - 분야 배지 (예: 기계공학)
     {{TOPIC_TITLE}}         - 오늘의 주제 제목
     {{PREHEADER}}           - 받은편지함 미리보기 텍스트 (1문장 요약)
-    {{DIAGRAM_IMAGE_URL}}   - 다이어그램 이미지 URL (PNG 권장, 이메일 클라이언트 SVG 미지원 대응)
+    {{DIAGRAM_IMAGE_URL}}   - 다이어그램 이미지 URL 또는 cid:참조 (PNG 권장)
     {{DIAGRAM_ALT}}         - 다이어그램 대체 텍스트 (접근성)
-    {{DIAGRAM_CAPTION}}     - 다이어그램 간략 설명 (1~2문장)
+    {{DIAGRAM_CAPTION}}     - 다이어그램 간략 설명 (히어로 섹션의 리드 문단으로도 사용)
     {{CROSS_DISCIPLINE_TEXT}} - 다른 분야로 확장한 사고 (플랜트 엔지니어 관점)
     {{SENDER_NAME}}         - 발신자/뉴스레터 이름
     {{SENDER_ADDRESS}}      - 발신자 주소 (법적 고지용)
@@ -17,6 +18,10 @@
   발송 시 아래 헤더를 함께 설정해 원클릭 수신거부를 지원할 것:
     List-Unsubscribe: <{{UNSUBSCRIBE_URL}}>
     List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+  이미지: 외부 URL 대신 --attach=<file>:diagram 로 CID 인라인 첨부하고
+  {{DIAGRAM_IMAGE_URL}}을 "cid:diagram"으로 넣는 방식을 권장 (일부 기업
+  메일 게이트웨이가 외부 이미지 호스팅 도메인을 차단하는 문제 회피).
 -->
 <!doctype html>
 <html lang="ko">
@@ -25,54 +30,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>{{TOPIC_TITLE}}</title>
+  <!--[if mso]>
+  <style>
+    .fallback-font { font-family: Georgia, 'Malgun Gothic', serif !important; }
+  </style>
+  <![endif]-->
+  <style>
+    @media screen and (max-width: 600px) {
+      .stack-col { display: block !important; width: 100% !important; }
+      .stack-pad { padding-left: 28px !important; padding-right: 28px !important; }
+      .hero-img { width: 100% !important; height: auto !important; }
+    }
+  </style>
 </head>
-<body style="margin:0; padding:0; background:#f4f5f7; font-family:'Segoe UI', Arial, sans-serif;">
+<body style="margin:0; padding:0; background:#eef0ea; font-family:'Helvetica Neue', Arial, 'Malgun Gothic', sans-serif;">
   <!-- 받은편지함 미리보기 텍스트 (화면에는 숨김) -->
   <div style="display:none; max-height:0; overflow:hidden; opacity:0;">{{PREHEADER}}</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7; padding:24px 0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef0ea; padding:28px 0;">
     <tr>
       <td align="center">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:8px; overflow:hidden; max-width:600px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#fffdf9; max-width:600px; border:1px solid #e6e0d2;">
 
-          <!-- 헤더 -->
+          <!-- 마스트헤드 -->
           <tr>
-            <td style="background:#0f2a4a; padding:20px 32px;">
-              <span style="color:#9fc4ff; font-size:13px; letter-spacing:1px;">PLANT ENGINEER DAILY INSIGHT · {{DATE}}</span>
+            <td style="padding:22px 32px 18px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="33%" style="font-size:11px; letter-spacing:0.08em; color:#8a7a5c; font-weight:600;">VOL. {{ISSUE_NO}}</td>
+                  <td width="34%" align="center" style="white-space:nowrap;">
+                    <span style="font-size:17px; font-weight:800; color:#1c2b3a; letter-spacing:-0.01em;">PLANT ENGINEER</span><br>
+                    <span style="font-size:10.5px; font-weight:500; color:#a9793a; letter-spacing:0.24em;">DAILY&nbsp;INSIGHT</span>
+                  </td>
+                  <td width="33%" align="right" style="font-size:11px; letter-spacing:0.06em; color:#8a7a5c; font-weight:600;">{{DATE}}</td>
+                </tr>
+              </table>
             </td>
           </tr>
 
-          <!-- 분야 배지 + 오늘의 주제 -->
-          <tr>
-            <td style="padding:32px 32px 8px;">
-              <span style="display:inline-block; background:#eaf1ff; color:#1f4f9c; font-size:12px; font-weight:600; padding:4px 10px; border-radius:12px;">{{CATEGORY}}</span>
-              <h1 style="margin:12px 0 0; font-size:22px; color:#111827;">{{TOPIC_TITLE}}</h1>
-            </td>
-          </tr>
+          <!-- 액센트 바 -->
+          <tr><td style="height:3px; line-height:3px; font-size:0; background:#b3762c;">&nbsp;</td></tr>
 
-          <!-- 다이어그램 -->
+          <!-- 히어로: 다이어그램 + 주제 -->
           <tr>
-            <td style="padding:16px 32px;">
-              <img src="{{DIAGRAM_IMAGE_URL}}" alt="{{DIAGRAM_ALT}}" width="536" style="width:100%; max-width:536px; display:block; border-radius:6px; border:1px solid #e5e7eb;">
-              <p style="margin:10px 0 0; font-size:13px; color:#6b7280; line-height:1.5;">{{DIAGRAM_CAPTION}}</p>
+            <td style="background:#faf6ee; padding:30px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="stack-col" width="228" valign="top" style="padding-right:22px;">
+                    <img class="hero-img" src="{{DIAGRAM_IMAGE_URL}}" alt="{{DIAGRAM_ALT}}" width="228" style="width:228px; max-width:100%; height:auto; display:block; border-radius:4px; border:1px solid #e6ddc8;">
+                  </td>
+                  <td class="stack-col" valign="top" style="padding-top:2px;">
+                    <span style="display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:#b3762c; border:1px solid #b3762c; border-radius:3px; padding:3px 9px;">{{CATEGORY}}</span>
+                    <h1 style="margin:12px 0 0; font-size:23px; line-height:1.35; font-weight:800; color:#1c2b3a; text-wrap:balance;">{{TOPIC_TITLE}}</h1>
+                    <p style="margin:10px 0 0; font-size:13.5px; line-height:1.6; color:#5c5340;">{{DIAGRAM_CAPTION}}</p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
           <!-- 다른 분야로의 확장 사고 -->
           <tr>
-            <td style="padding:8px 32px 32px;">
-              <h2 style="font-size:15px; color:#111827; margin:0 0 8px;">플랜트 엔지니어를 위한 확장된 생각</h2>
-              <p style="font-size:14px; color:#374151; line-height:1.7; margin:0; white-space:pre-line;">{{CROSS_DISCIPLINE_TEXT}}</p>
+            <td class="stack-pad" style="padding:34px 40px 36px;">
+              <p style="margin:0 0 12px; font-size:11px; font-weight:700; letter-spacing:0.14em; color:#a9793a;">FOR PLANT ENGINEERS &nbsp;·&nbsp; 확장된 생각</p>
+              <p style="margin:0; font-family:Georgia,'Noto Serif KR',serif; font-size:16px; line-height:1.85; color:#2a2620;">{{CROSS_DISCIPLINE_TEXT}}</p>
             </td>
           </tr>
 
           <!-- 푸터 (법적 요건 + 구독취소) -->
           <tr>
-            <td style="background:#f9fafb; padding:20px 32px; border-top:1px solid #e5e7eb;">
-              <p style="font-size:11px; color:#9ca3af; margin:0 0 6px;">{{SENDER_NAME}} · {{SENDER_ADDRESS}}</p>
-              <p style="font-size:11px; color:#9ca3af; margin:0;">
+            <td style="background:#1c2b3a; padding:22px 32px;">
+              <p style="font-size:11px; color:#9aa5b1; margin:0 0 6px;">{{SENDER_NAME}} · {{SENDER_ADDRESS}}</p>
+              <p style="font-size:11px; color:#9aa5b1; margin:0;">
                 이 메일은 구독에 동의하신 분께 발송되었습니다.
-                <a href="{{UNSUBSCRIBE_URL}}" style="color:#6b7280;">구독취소</a>
+                <a href="{{UNSUBSCRIBE_URL}}" style="color:#c9a35c;">구독취소</a>
               </p>
             </td>
           </tr>

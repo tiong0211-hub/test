@@ -1,14 +1,15 @@
 <!--
-  Plant Engineer Daily Insight - 뉴스레터 템플릿
+  Plant Engineer Daily Insight - 뉴스레터 템플릿 (매거진 스타일)
 
   치환할 플레이스홀더:
     2026년 9월 8일                - 발행일 (예: 2026년 9월 8일)
+    001             - 발행 호수 (예: 001) - data/history.json 항목 수 기준
     심리학            - 분야 배지 (예: 기계공학)
     사회적 증거와 동조         - 오늘의 주제 제목
     불확실할 때 우리는 왜 옆 사람을 따라 하게 될까요? 오늘의 인사이트.           - 받은편지함 미리보기 텍스트 (1문장 요약)
-    cid:diagram   - 다이어그램 이미지 URL (PNG 권장, 이메일 클라이언트 SVG 미지원 대응)
+    cid:diagram   - 다이어그램 이미지 URL 또는 cid:참조 (PNG 권장)
     불확실한 상황에서 동료의 행동을 관찰해 판단 기준으로 삼고, 그 행동을 따라 하면서 그것이 다음 사람이 관찰할 새로운 규범으로 굳어지는 순환 구조         - 다이어그램 대체 텍스트 (접근성)
-    사람은 불확실한 상황에서 정보가 부족할 때 동료의 행동을 '무엇이 맞는지' 판단하는 기준으로 삼습니다. 그렇게 채택된 행동은 다시 다음 사람이 관찰하는 대상이 되어, 반복될수록 하나의 규범으로 굳어집니다.     - 다이어그램 간략 설명 (1~2문장)
+    사람은 불확실한 상황에서 정보가 부족할 때 동료의 행동을 '무엇이 맞는지' 판단하는 기준으로 삼습니다. 그렇게 채택된 행동은 다시 다음 사람이 관찰하는 대상이 되어, 반복될수록 하나의 규범으로 굳어집니다.     - 다이어그램 간략 설명 (히어로 섹션의 리드 문단으로도 사용)
     이 순환 구조는 엔지니어링 현장의 '일탈의 정상화(normalization of deviance)' 현상과 정확히 같은 메커니즘입니다. 신입 작업자가 LOTO(잠금·태그아웃) 절차의 한 단계를 베테랑이 생략하는 걸 보고 "저렇게 해도 사고가 안 났으니 괜찮구나"라고 판단하면, 그 생략된 행동이 다음 신입에게는 이미 '표준'처럼 보이게 됩니다. 챌린저호 폭발 사고를 분석한 사회학자 다이앤 본(Diane Vaughan)도 이 과정을 규정 위반이 아니라, 반복된 관찰과 무사고 경험이 위험을 '정상'으로 재정의하는 조직적 학습 과정으로 설명했습니다. 그래서 안전 감사는 "규정을 아는가"보다 "지금 현장에서 실제로 관찰되는 행동이 무엇인가"를 먼저 봐야 하고, 새로운 규범이 굳어지기 전 초기 단계에서 개입하는 것이 가장 효과적입니다. - 다른 분야로 확장한 사고 (플랜트 엔지니어 관점)
     Plant Engineer Daily Insight         - 발신자/뉴스레터 이름
     발신자 주소 등록 예정 (도메인 인증 후 업데이트)      - 발신자 주소 (법적 고지용)
@@ -17,6 +18,10 @@
   발송 시 아래 헤더를 함께 설정해 원클릭 수신거부를 지원할 것:
     List-Unsubscribe: <#>
     List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+  이미지: 외부 URL 대신 --attach=<file>:diagram 로 CID 인라인 첨부하고
+  cid:diagram을 "cid:diagram"으로 넣는 방식을 권장 (일부 기업
+  메일 게이트웨이가 외부 이미지 호스팅 도메인을 차단하는 문제 회피).
 -->
 <!doctype html>
 <html lang="ko">
@@ -25,54 +30,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>사회적 증거와 동조</title>
+  <!--[if mso]>
+  <style>
+    .fallback-font { font-family: Georgia, 'Malgun Gothic', serif !important; }
+  </style>
+  <![endif]-->
+  <style>
+    @media screen and (max-width: 600px) {
+      .stack-col { display: block !important; width: 100% !important; }
+      .stack-pad { padding-left: 28px !important; padding-right: 28px !important; }
+      .hero-img { width: 100% !important; height: auto !important; }
+    }
+  </style>
 </head>
-<body style="margin:0; padding:0; background:#f4f5f7; font-family:'Segoe UI', Arial, sans-serif;">
+<body style="margin:0; padding:0; background:#eef0ea; font-family:'Helvetica Neue', Arial, 'Malgun Gothic', sans-serif;">
   <!-- 받은편지함 미리보기 텍스트 (화면에는 숨김) -->
   <div style="display:none; max-height:0; overflow:hidden; opacity:0;">불확실할 때 우리는 왜 옆 사람을 따라 하게 될까요? 오늘의 인사이트.</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7; padding:24px 0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef0ea; padding:28px 0;">
     <tr>
       <td align="center">
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:8px; overflow:hidden; max-width:600px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background:#fffdf9; max-width:600px; border:1px solid #e6e0d2;">
 
-          <!-- 헤더 -->
+          <!-- 마스트헤드 -->
           <tr>
-            <td style="background:#0f2a4a; padding:20px 32px;">
-              <span style="color:#9fc4ff; font-size:13px; letter-spacing:1px;">PLANT ENGINEER DAILY INSIGHT · 2026년 9월 8일</span>
+            <td style="padding:22px 32px 18px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="33%" style="font-size:11px; letter-spacing:0.08em; color:#8a7a5c; font-weight:600;">VOL. 001</td>
+                  <td width="34%" align="center" style="white-space:nowrap;">
+                    <span style="font-size:17px; font-weight:800; color:#1c2b3a; letter-spacing:-0.01em;">PLANT ENGINEER</span><br>
+                    <span style="font-size:10.5px; font-weight:500; color:#a9793a; letter-spacing:0.24em;">DAILY&nbsp;INSIGHT</span>
+                  </td>
+                  <td width="33%" align="right" style="font-size:11px; letter-spacing:0.06em; color:#8a7a5c; font-weight:600;">2026년 9월 8일</td>
+                </tr>
+              </table>
             </td>
           </tr>
 
-          <!-- 분야 배지 + 오늘의 주제 -->
-          <tr>
-            <td style="padding:32px 32px 8px;">
-              <span style="display:inline-block; background:#eaf1ff; color:#1f4f9c; font-size:12px; font-weight:600; padding:4px 10px; border-radius:12px;">심리학</span>
-              <h1 style="margin:12px 0 0; font-size:22px; color:#111827;">사회적 증거와 동조</h1>
-            </td>
-          </tr>
+          <!-- 액센트 바 -->
+          <tr><td style="height:3px; line-height:3px; font-size:0; background:#b3762c;">&nbsp;</td></tr>
 
-          <!-- 다이어그램 -->
+          <!-- 히어로: 다이어그램 + 주제 -->
           <tr>
-            <td style="padding:16px 32px;">
-              <img src="cid:diagram" alt="불확실한 상황에서 동료의 행동을 관찰해 판단 기준으로 삼고, 그 행동을 따라 하면서 그것이 다음 사람이 관찰할 새로운 규범으로 굳어지는 순환 구조" width="536" style="width:100%; max-width:536px; display:block; border-radius:6px; border:1px solid #e5e7eb;">
-              <p style="margin:10px 0 0; font-size:13px; color:#6b7280; line-height:1.5;">사람은 불확실한 상황에서 정보가 부족할 때 동료의 행동을 '무엇이 맞는지' 판단하는 기준으로 삼습니다. 그렇게 채택된 행동은 다시 다음 사람이 관찰하는 대상이 되어, 반복될수록 하나의 규범으로 굳어집니다.</p>
+            <td style="background:#faf6ee; padding:30px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="stack-col" width="228" valign="top" style="padding-right:22px;">
+                    <img class="hero-img" src="cid:diagram" alt="불확실한 상황에서 동료의 행동을 관찰해 판단 기준으로 삼고, 그 행동을 따라 하면서 그것이 다음 사람이 관찰할 새로운 규범으로 굳어지는 순환 구조" width="228" style="width:228px; max-width:100%; height:auto; display:block; border-radius:4px; border:1px solid #e6ddc8;">
+                  </td>
+                  <td class="stack-col" valign="top" style="padding-top:2px;">
+                    <span style="display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:0.08em; color:#b3762c; border:1px solid #b3762c; border-radius:3px; padding:3px 9px;">심리학</span>
+                    <h1 style="margin:12px 0 0; font-size:23px; line-height:1.35; font-weight:800; color:#1c2b3a; text-wrap:balance;">사회적 증거와 동조</h1>
+                    <p style="margin:10px 0 0; font-size:13.5px; line-height:1.6; color:#5c5340;">사람은 불확실한 상황에서 정보가 부족할 때 동료의 행동을 '무엇이 맞는지' 판단하는 기준으로 삼습니다. 그렇게 채택된 행동은 다시 다음 사람이 관찰하는 대상이 되어, 반복될수록 하나의 규범으로 굳어집니다.</p>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
           <!-- 다른 분야로의 확장 사고 -->
           <tr>
-            <td style="padding:8px 32px 32px;">
-              <h2 style="font-size:15px; color:#111827; margin:0 0 8px;">플랜트 엔지니어를 위한 확장된 생각</h2>
-              <p style="font-size:14px; color:#374151; line-height:1.7; margin:0; white-space:pre-line;">이 순환 구조는 엔지니어링 현장의 '일탈의 정상화(normalization of deviance)' 현상과 정확히 같은 메커니즘입니다. 신입 작업자가 LOTO(잠금·태그아웃) 절차의 한 단계를 베테랑이 생략하는 걸 보고 "저렇게 해도 사고가 안 났으니 괜찮구나"라고 판단하면, 그 생략된 행동이 다음 신입에게는 이미 '표준'처럼 보이게 됩니다. 챌린저호 폭발 사고를 분석한 사회학자 다이앤 본(Diane Vaughan)도 이 과정을 규정 위반이 아니라, 반복된 관찰과 무사고 경험이 위험을 '정상'으로 재정의하는 조직적 학습 과정으로 설명했습니다. 그래서 안전 감사는 "규정을 아는가"보다 "지금 현장에서 실제로 관찰되는 행동이 무엇인가"를 먼저 봐야 하고, 새로운 규범이 굳어지기 전 초기 단계에서 개입하는 것이 가장 효과적입니다.</p>
+            <td class="stack-pad" style="padding:34px 40px 36px;">
+              <p style="margin:0 0 12px; font-size:11px; font-weight:700; letter-spacing:0.14em; color:#a9793a;">FOR PLANT ENGINEERS &nbsp;·&nbsp; 확장된 생각</p>
+              <p style="margin:0; font-family:Georgia,'Noto Serif KR',serif; font-size:16px; line-height:1.85; color:#2a2620;">이 순환 구조는 엔지니어링 현장의 '일탈의 정상화(normalization of deviance)' 현상과 정확히 같은 메커니즘입니다. 신입 작업자가 LOTO(잠금·태그아웃) 절차의 한 단계를 베테랑이 생략하는 걸 보고 "저렇게 해도 사고가 안 났으니 괜찮구나"라고 판단하면, 그 생략된 행동이 다음 신입에게는 이미 '표준'처럼 보이게 됩니다. 챌린저호 폭발 사고를 분석한 사회학자 다이앤 본(Diane Vaughan)도 이 과정을 규정 위반이 아니라, 반복된 관찰과 무사고 경험이 위험을 '정상'으로 재정의하는 조직적 학습 과정으로 설명했습니다. 그래서 안전 감사는 "규정을 아는가"보다 "지금 현장에서 실제로 관찰되는 행동이 무엇인가"를 먼저 봐야 하고, 새로운 규범이 굳어지기 전 초기 단계에서 개입하는 것이 가장 효과적입니다.</p>
             </td>
           </tr>
 
           <!-- 푸터 (법적 요건 + 구독취소) -->
           <tr>
-            <td style="background:#f9fafb; padding:20px 32px; border-top:1px solid #e5e7eb;">
-              <p style="font-size:11px; color:#9ca3af; margin:0 0 6px;">Plant Engineer Daily Insight · 발신자 주소 등록 예정 (도메인 인증 후 업데이트)</p>
-              <p style="font-size:11px; color:#9ca3af; margin:0;">
+            <td style="background:#1c2b3a; padding:22px 32px;">
+              <p style="font-size:11px; color:#9aa5b1; margin:0 0 6px;">Plant Engineer Daily Insight · 발신자 주소 등록 예정 (도메인 인증 후 업데이트)</p>
+              <p style="font-size:11px; color:#9aa5b1; margin:0;">
                 이 메일은 구독에 동의하신 분께 발송되었습니다.
-                <a href="#" style="color:#6b7280;">구독취소</a>
+                <a href="#" style="color:#c9a35c;">구독취소</a>
               </p>
             </td>
           </tr>
