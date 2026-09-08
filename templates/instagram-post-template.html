@@ -1,0 +1,98 @@
+<!--
+  Plant Engineer Daily Insight - 인스타그램 카드 템플릿 (영문 전용, 1080x1350)
+
+  이메일 발송(templates/newsletter-template.html)은 발신 도메인 미인증으로
+  중단되었고, 이 프로젝트는 앞으로 인스타그램 카드 발행을 기준으로 한다.
+  VOL 번호는 data/instagram-history.json 항목 수 기준 (이메일 시절 VOL과 무관, 001부터 재시작).
+
+  치환할 플레이스홀더:
+    {{VOL}}          - 발행 호수, 3자리 (예: 001)
+    {{DATE}}         - 발행일 (예: 2026-09-09)
+    {{BADGE}}        - 분야 배지, 영문 대문자 (예: ECONOMICS)
+    {{TITLE}}        - 영문 제목 (필요시 <br>로 줄바꿈)
+    {{LEAD}}         - 영문 리드 문단 (1~3문장)
+    {{CHART_TITLE}}  - 다이어그램 상단 라벨, 영문 대문자
+    {{DIAGRAM_HTML}} - 그날 주제에 맞게 새로 그리는 다이어그램/차트 마크업
+                       (inline SVG 또는 div, 아래 색상 토큰 사용:
+                        ink #1c2b3a, accent #b3762c/#c9791f, muted #4a5568,
+                        card bg #faf6ee, card border #e6ddc8)
+                       .chart-box 안에 배치되므로 폭 100% 기준으로 그릴 것.
+                       고정된 상자+화살표 흐름이 필요없는 주제라면
+                       자유형 SVG 다이어그램으로 대체 가능.
+    {{CTA}}          - 하단 CTA 문구 (예: Full story &rarr; link in bio)
+
+  캡션은 이 이미지와 별도로 영문+국문 함께 작성해 채팅으로 전달한다
+  (이미지 안에는 영문만 넣는다 - 더 넓은 타겟층을 위해).
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; }
+  body {
+    background: #eef0ea;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .card {
+    width: 1080px; height: 1350px;
+    background: #fffdf9;
+    border: 1px solid #e6e0d2;
+    display: flex; flex-direction: column;
+    padding: 72px 84px 64px;
+  }
+  .masthead { display: flex; justify-content: space-between; align-items: baseline; }
+  .vol { font-size: 20px; font-weight: 700; letter-spacing: 0.1em; color: #8a7a5c; }
+  .wordmark { text-align: right; }
+  .wordmark .name { display: block; font-size: 28px; font-weight: 800; color: #1c2b3a; letter-spacing: -0.01em; }
+  .wordmark .tag { display: block; font-size: 15px; font-weight: 500; color: #a9793a; letter-spacing: 0.28em; margin-top: 4px; }
+  .accent-bar { height: 5px; background: #b3762c; margin: 40px 0 48px; }
+  .badge {
+    display: inline-block; font-size: 17px; font-weight: 700; letter-spacing: 0.08em;
+    color: #b3762c; border: 1.5px solid #b3762c; border-radius: 5px; padding: 6px 16px;
+    align-self: flex-start;
+  }
+  h1 { font-size: 58px; line-height: 1.28; font-weight: 800; color: #1c2b3a; margin: 28px 0 0; text-wrap: balance; }
+  .lead { font-size: 27px; line-height: 1.62; color: #5c5340; margin: 30px 0 0; max-width: 900px; }
+  .diagram { margin-top: 44px; flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .chart-title {
+    text-align: center; font-size: 15px; font-weight: 700; letter-spacing: 0.08em;
+    color: #4a5568; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .chart-box {
+    background: #faf6ee; border: 1px solid #e6ddc8; border-radius: 6px;
+    padding: 24px 32px; flex: 1; display: flex; flex-direction: column; min-height: 0;
+  }
+  .footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e6e0d2; padding-top: 28px; margin-top: 8px; }
+  .footer .brand { font-size: 19px; font-weight: 700; color: #1c2b3a; }
+  .footer .cta { font-size: 19px; font-weight: 600; color: #a9793a; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="masthead">
+      <span class="vol">VOL. {{VOL}}</span>
+      <span class="wordmark">
+        <span class="name">PLANT ENGINEER</span>
+        <span class="tag">DAILY&nbsp;INSIGHT</span>
+      </span>
+    </div>
+    <div class="accent-bar"></div>
+    <span class="badge">{{BADGE}}</span>
+    <h1>{{TITLE}}</h1>
+    <p class="lead">{{LEAD}}</p>
+    <div class="diagram">
+      <div class="chart-title">{{CHART_TITLE}}</div>
+      <div class="chart-box">
+        {{DIAGRAM_HTML}}
+      </div>
+    </div>
+    <div class="footer">
+      <span class="brand">Plant Engineer Daily Insight</span>
+      <span class="cta">{{CTA}}</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+The Bullwhip Effect in Supply Chains
+
+Each time a small shift in customer demand passes through retailers and wholesalers to reach the manufacturer, it gets slightly exaggerated — so order swings snowball the further upstream you go.
+
+If you work in plants, this will look familiar: it's structurally the same as the oscillation instability in a cascade control loop, where each stage over-corrects a delayed signal and that correction gets amplified again downstream. The supply-chain fix — real-time demand sharing, shorter lead times, smaller and more frequent batches — maps exactly onto lowering gain and shortening the sampling interval in control tuning.
+
+One topic, a different lens, every morning.
+
+#SupplyChain #BullwhipEffect #PlantEngineering #ControlTheory #Newsletter
+
+---
+
+공급망의 채찍 효과
+
+고객의 작은 수요 변동이 소매상 → 도매상 → 제조사로 전달될 때마다 조금씩 과장되어, 공급망 상류로 갈수록 주문량의 진폭이 눈덩이처럼 커집니다.
+
+플랜트 엔지니어라면 익숙한 구조입니다 — 캐스케이드 제어 루프에서 신호가 지연된 채 과도하게 보정되고, 그 보정값이 다음 단계에서 다시 증폭되는 진동 불안정성과 동일합니다. 실시간 수요 공유, 짧은 리드타임, 작은 배치로 자주 조정하는 해법은 제어 루프의 게인을 낮추고 샘플링 주기를 짧게 가져가는 원리와 정확히 대응합니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#공급망관리 #채찍효과 #플랜트엔지니어 #제어공학 #뉴스레터
