@@ -1,0 +1,15 @@
+{
+  "name": "plant-engineer-daily-newsletter",
+  "version": "1.0.0",
+  "description": "플랜트 엔지니어를 위한 일일 인사이트 뉴스레터 자동 생성/검수/발송 파이프라인",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "select-topic": "node scripts/select-topic.js",
+    "render": "node scripts/render-newsletter.js",
+    "send": "node scripts/send-email.js"
+  },
+  "license": "UNLICENSED"
+}
