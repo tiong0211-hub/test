@@ -22,8 +22,16 @@ function authHeaders(apiKey = process.env.RESEND_API_KEY) {
 /**
  * Sends the draft newsletter (as a preview) to the publisher's own inbox for review.
  * Uses Resend's transactional /emails endpoint (single recipient).
+ *
+ * `attachments` (optional): Resend attachment objects, e.g.
+ * [{ filename, content: <base64 string>, content_id }]. A `content_id` makes
+ * an attachment referenceable inline as `<img src="cid:THAT_ID">` — the
+ * image travels inside the email itself instead of being fetched from an
+ * external URL, so it isn't affected by a recipient's network/link-fetch
+ * restrictions (a known issue with some corporate mail gateways blocking
+ * code-hosting domains like raw.githubusercontent.com).
  */
-async function sendPreview({ to, subject, html, apiKey, from = process.env.SENDER_EMAIL }) {
+async function sendPreview({ to, subject, html, apiKey, from = process.env.SENDER_EMAIL, attachments }) {
   requireEnvOrThrow({ from: 'SENDER_EMAIL' }, { from });
 
   const res = await fetch(RESEND_API_URL, {
@@ -38,6 +46,7 @@ async function sendPreview({ to, subject, html, apiKey, from = process.env.SENDE
       subject,
       html,
       text: toPlainText(html),
+      ...(attachments ? { attachments } : {}),
     }),
   });
 
@@ -59,6 +68,7 @@ async function sendBroadcast({
   html,
   apiKey,
   from = process.env.SENDER_EMAIL,
+  attachments,
 }) {
   requireEnvOrThrow(
     { from: 'SENDER_EMAIL', audienceId: 'SUBSCRIBER_AUDIENCE_ID' },
@@ -77,6 +87,7 @@ async function sendBroadcast({
       subject,
       html,
       text: toPlainText(html),
+      ...(attachments ? { attachments } : {}),
     }),
   });
 
@@ -112,17 +123,30 @@ if (require.main === module) {
 
   if (!args.mode || !args.html || !args.subject) {
     console.error(
-      'Usage: node send-email.js --mode=preview --to=<email> --subject="..." --html=<path> [--out=<path>]\n' +
-      '       node send-email.js --mode=broadcast --subject="..." --html=<path>'
+      'Usage: node send-email.js --mode=preview --to=<email> --subject="..." --html=<path> [--attach=<file>:<content_id>,...]\n' +
+      '       node send-email.js --mode=broadcast --subject="..." --html=<path> [--attach=<file>:<content_id>,...]'
     );
     process.exit(1);
   }
 
   const html = fs.readFileSync(args.html, 'utf8');
 
+  // --attach=<path>:<content_id>[,<path>:<content_id>...] embeds each file
+  // as an inline attachment referenceable in the HTML as cid:<content_id>.
+  const attachments = args.attach
+    ? args.attach.split(',').map((entry) => {
+        const [filePath, contentId] = entry.split(':');
+        return {
+          filename: filePath.split('/').pop(),
+          content: fs.readFileSync(filePath).toString('base64'),
+          content_id: contentId,
+        };
+      })
+    : undefined;
+
   const run = args.mode === 'preview'
-    ? sendPreview({ to: args.to, subject: args.subject, html })
-    : sendBroadcast({ subject: args.subject, html });
+    ? sendPreview({ to: args.to, subject: args.subject, html, attachments })
+    : sendBroadcast({ subject: args.subject, html, attachments });
 
   run
     .then((result) => {
