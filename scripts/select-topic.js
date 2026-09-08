@@ -16,6 +16,13 @@ function saveJson(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n');
 }
 
+/** KST = UTC+9, no DST. The Routine that calls this fires at UTC times chosen
+ * to land on KST mornings, so "today" must be the KST calendar date, not the
+ * UTC one, or a run late in the UTC day logs the wrong (previous) date. */
+function todayKst() {
+  return new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+}
+
 function daysAgo(dateStr, days) {
   const d = new Date(dateStr + 'T00:00:00Z');
   d.setUTCDate(d.getUTCDate() - days);
@@ -41,7 +48,7 @@ function selectTopic({
   topicsPath = DEFAULT_TOPICS_PATH,
   historyPath = DEFAULT_HISTORY_PATH,
   windowDays = DEFAULT_WINDOW_DAYS,
-  today = new Date().toISOString().slice(0, 10),
+  today = todayKst(),
 } = {}) {
   const { categories } = loadJson(topicsPath);
   const history = fs.existsSync(historyPath) ? loadJson(historyPath) : [];
