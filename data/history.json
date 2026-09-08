@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "date": "2026-09-08",
+    "category": "심리학",
+    "topicId": "ps-social-proof",
+    "title": "사회적 증거와 동조",
+    "hint": "불확실한 상황에서 타인의 행동을 판단 기준으로 삼는 경향.",
+    "status": "pending"
+  }
+]
