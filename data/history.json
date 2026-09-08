@@ -6,5 +6,13 @@
     "title": "사회적 증거와 동조",
     "hint": "불확실한 상황에서 타인의 행동을 판단 기준으로 삼는 경향.",
     "status": "pending"
+  },
+  {
+    "date": "2026-09-09",
+    "category": "경제학",
+    "topicId": "ec-bullwhip",
+    "title": "공급망의 채찍 효과",
+    "hint": "수요 정보가 공급망 상류로 갈수록 변동성이 증폭되는 현상.",
+    "status": "pending"
   }
 ]
