@@ -1,0 +1,21 @@
+The Pinch Point in Heat Exchanger Networks
+
+Plot every stream that needs cooling and every stream that needs heating on one temperature–enthalpy chart, and the point where the two curves come closest — the pinch — sets the true minimum energy the process can ever use, no matter how the exchangers are wired.
+
+This is why pinch analysis is such a powerful design tool: it separates the question "how much energy do we truly need?" from the question "how do we wire the exchangers to get there?" Above the pinch you only ever need hot utility; below it you only ever need cold utility. Cross a hot and cold stream across the pinch and you're paying for heating and cooling at the same time — the single most common way real plants waste energy.
+
+One topic, a different lens, every morning.
+
+#ChemicalEngineering #PinchAnalysis #HeatIntegration #ProcessEngineering #PlantEngineer
+
+---
+
+열교환기 네트워크의 핀치 포인트
+
+냉각이 필요한 모든 스트림과 가열이 필요한 모든 스트림을 하나의 온도-엔탈피 선도에 그리면, 두 곡선이 가장 가까워지는 지점 — 핀치 — 이 열교환기를 어떻게 배치하든 상관없이 공정이 쓸 수 있는 진짜 최소 에너지량을 결정합니다.
+
+핀치 분석이 강력한 이유가 여기 있습니다 — "얼마나 적은 에너지로 충분한가"라는 질문과 "그걸 어떻게 배관으로 구현하는가"라는 질문을 완전히 분리해줍니다. 핀치보다 위에서는 고온 유틸리티만, 아래에서는 저온 유틸리티만 필요합니다. 핀치를 가로질러 고온-저온 스트림을 교환시키면 가열과 냉각 비용을 동시에 지불하게 되는데, 이것이 실제 플랜트에서 에너지가 새는 가장 흔한 원인입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#화학공학 #핀치분석 #열통합 #공정공학 #플랜트엔지니어

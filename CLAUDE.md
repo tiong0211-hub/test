@@ -32,10 +32,26 @@ audience, with a cross-discipline analogy back to plant engineering.
    block (English first, then `---`, then Korean) — see
    `output/instagram/2026-09-09/caption.txt` for the format used so far.
 5. Save `content.json`, the rendered PNG, and `caption.txt` under
-   `output/instagram/<date>/`, then commit.
+   `output/instagram/<date>[-vol<NNN>]/` (append `-vol<NNN>` if that date's folder is
+   already taken — e.g. a manual run and the automated run land on the same calendar
+   day), then `git add`/`commit`/push to the current branch. Do not skip the push —
+   an unpushed run has produced nothing.
 6. Push the PNG to the user as a downloadable file (`display: "attach"`) and the
    caption as chat text. Posting to Instagram itself is manual (no API integration is
    set up) — the user copies the caption and uploads the image themselves.
+
+## Reliability (this runs unattended — optimize for finishing, not polish)
+
+- Render the image **once**, view it **once** with Read, fix it if something is
+  genuinely broken (clipped text, overlapping elements, a diagram that doesn't render),
+  then move on. Do not loop on repeated render/view/tweak cycles chasing a better
+  diagram — a clean, correct-enough diagram beats a redrawn one three iterations later.
+- The whole run (topic → content → render → caption → commit/push → deliver) should be
+  a handful of tool calls, not dozens. If it isn't converging, ship the simplest version
+  that renders correctly rather than leaving nothing pushed.
+- The very last two things every run does, no exceptions: `git push`, then deliver the
+  PNG + caption to the user. A run that stops before either of those has failed even if
+  everything before it went fine.
 
 ## Conventions
 
@@ -44,3 +60,6 @@ audience, with a cross-discipline analogy back to plant engineering.
   only `BADGE`/`TITLE`/`LEAD`/`CHART_TITLE`/`DIAGRAM_HTML`/`CTA` change day to day.
 - `data/history.json` still drives topic dedup for both the (defunct) email history and
   Instagram; don't stop writing to it.
+- VOL is a running counter, not tied 1:1 to the calendar date — two VOLs can share a
+  date (e.g. a catch-up run after a missed day). Never reuse or renumber a VOL that's
+  already in `data/instagram-history.json`.
