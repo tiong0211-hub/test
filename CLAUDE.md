@@ -38,37 +38,48 @@ audience, with a cross-discipline analogy back to plant engineering.
    an unpushed run has produced nothing.
 6. Push the PNG to the user as a downloadable file (`display: "attach"`) and the
    caption as chat text.
-7. **Ask for approval before publishing — never publish without it.** Once
-   `IG_BUSINESS_ACCOUNT_ID` is configured (see "Instagram auto-publish setup" below),
-   ask in chat: "게시할까요?" and end the turn. Only when the user replies approving
-   (in this same session — it can be a later message, the session does not need to
-   stay open) do you run:
+7. **Ask for approval before publishing — never publish without it.** Auto-publish is
+   now fully wired up (see "Instagram auto-publish setup" below). After step 6, ask in
+   chat: "게시할까요?" and end the turn. Only when the user replies approving (in this
+   same session — it can be a later message, the session does not need to stay open) do
+   you run:
    ```
    node scripts/publish-instagram.js \
      --image-url=https://raw.githubusercontent.com/tiong0211-hub/test/<branch>/output/instagram/<date-folder>/post-en.png \
-     --caption-file=output/instagram/<date-folder>/caption.txt \
-     --ig-user-id=$IG_BUSINESS_ACCOUNT_ID
+     --caption-file=output/instagram/<date-folder>/caption.txt
    ```
    (the repo is public, so the raw.githubusercontent.com URL is reachable by Meta's
-   servers once pushed — publish only after the push in step 5 has landed). If
-   `IG_BUSINESS_ACCOUNT_ID` isn't set yet, auto-publish isn't wired up — skip step 7
-   entirely and stop after step 6 as before (manual posting).
+   servers once pushed — publish only after the push in step 5 has landed; `--ig-user-id`
+   defaults to `data/instagram-config.json` so it doesn't need to be passed explicitly).
    Report the result (success + the returned post id, or the error) back in chat.
 
 ## Instagram auto-publish setup
 
-Auto-publishing goes through the Instagram Graph API and needs one-time setup the user
-does outside this session (converting the account to Professional, linking a Facebook
-Page, creating a Meta app, generating a long-lived access token — see chat history for
-the full walkthrough) plus:
-- The long-lived access token registered as a Claude Code cloud environment **API
+Done (2026-09-11) via the classic Graph API (Facebook Login) flow — not the newer
+"Instagram API with Instagram Login" product, which requires the target Instagram
+account to independently register as a Meta developer and repeatedly hit that wall.
+The classic route instead uses a **User Access Token belonging to the app's own admin**
+(who already has developer access) scoped with `instagram_basic`,
+`instagram_content_publish`, `pages_show_list`, `pages_read_engagement`,
+`business_management`, exchanged for a 60-day long-lived token. Even though
+`plantengineer_insights` has no linked Facebook Page (so `/me/accounts` returns
+nothing), its ID is still reachable once connected as an asset in the same Business
+Portfolio ("Tiong's story", business ID `1111206594919812`): `GET
+/{business_id}?fields=id,name` confirms the business, and the Instagram account's own
+ID (found here in `data/instagram-config.json` as `igBusinessAccountId`) works directly
+against `/{ig-user-id}/media` and `/{ig-user-id}/media_publish` with that admin token.
+- The long-lived access token is registered as a Claude Code cloud environment **API
   credential**: Allowed website `graph.facebook.com`, Bearer token. The token is never
   visible to this session or in code — `scripts/publish-instagram.js` relies on the
-  agent proxy to attach it.
-- `IG_BUSINESS_ACCOUNT_ID` (not secret) set as a plain environment variable, or passed
-  as `--ig-user-id`.
-Until both exist, treat auto-publish as unavailable and fall back to step 6's manual
-handoff (image + caption to the user, they post it themselves).
+  agent proxy to attach it. It expires ~60 days from 2026-09-11; when publishing starts
+  failing with an auth error around then, redo the token exchange (Graph API Explorer →
+  Generate Access Token with the 5 scopes above → exchange short-lived for long-lived via
+  `GET oauth/access_token?grant_type=fb_exchange_token&client_id=1844544333390389&client_secret=<app secret>&fb_exchange_token=<short-lived token>`,
+  app secret from 앱 설정 → 기본 설정) and re-register it — have the user do the
+  registration step themselves, the token value should never be pasted into this chat
+  or committed anywhere in this public repo.
+- `data/instagram-config.json` holds `igBusinessAccountId` (not secret) as the default
+  for `--ig-user-id`.
 
 ## Reliability (this runs unattended — optimize for finishing, not polish)
 

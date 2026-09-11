@@ -2,9 +2,20 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 
 const GRAPH_API_VERSION = 'v21.0';
 const GRAPH_API_BASE = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+const CONFIG_PATH = path.join(__dirname, '..', 'data', 'instagram-config.json');
+
+/** igBusinessAccountId is not secret - committed in data/instagram-config.json as the default. */
+function defaultIgUserId() {
+  try {
+    return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')).igBusinessAccountId;
+  } catch {
+    return undefined;
+  }
+}
 
 /**
  * The Instagram Graph API access token is never handled directly by this code.
@@ -65,12 +76,12 @@ if (require.main === module) {
     })
   );
 
-  const igUserId = args['ig-user-id'] || process.env.IG_BUSINESS_ACCOUNT_ID;
+  const igUserId = args['ig-user-id'] || process.env.IG_BUSINESS_ACCOUNT_ID || defaultIgUserId();
   if (!args['image-url'] || !igUserId) {
     console.error(
-      'Usage: node publish-instagram.js --image-url=<public https url> --ig-user-id=<id> ' +
+      'Usage: node publish-instagram.js --image-url=<public https url> [--ig-user-id=<id>] ' +
       '(--caption="..." | --caption-file=<path>)\n' +
-      'ig-user-id may also come from the IG_BUSINESS_ACCOUNT_ID environment variable.'
+      'ig-user-id defaults to data/instagram-config.json, or IG_BUSINESS_ACCOUNT_ID env var.'
     );
     process.exit(1);
   }
