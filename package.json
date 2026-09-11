@@ -12,7 +12,7 @@
     "send": "node scripts/send-email.js",
     "build-ig-post": "node scripts/build-instagram-post.js",
     "render-ig": "node scripts/render-instagram-image.js",
-    "publish-ig": "node scripts/publish-instagram.js"
+    "publish-ig": "NODE_USE_ENV_PROXY=1 node scripts/publish-instagram.js"
   },
   "devDependencies": {
     "playwright": "1.63.0"

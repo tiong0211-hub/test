@@ -44,14 +44,20 @@ audience, with a cross-discipline analogy back to plant engineering.
    same session — it can be a later message, the session does not need to stay open) do
    you run:
    ```
-   node scripts/publish-instagram.js \
+   NODE_USE_ENV_PROXY=1 node scripts/publish-instagram.js \
      --image-url=https://raw.githubusercontent.com/tiong0211-hub/test/<branch>/output/instagram/<date-folder>/post-en.png \
      --caption-file=output/instagram/<date-folder>/caption.txt
    ```
    (the repo is public, so the raw.githubusercontent.com URL is reachable by Meta's
    servers once pushed — publish only after the push in step 5 has landed; `--ig-user-id`
-   defaults to `data/instagram-config.json` so it doesn't need to be passed explicitly).
-   Report the result (success + the returned post id, or the error) back in chat.
+   defaults to `data/instagram-config.json` so it doesn't need to be passed explicitly.
+   `NODE_USE_ENV_PROXY=1` is required — Node's fetch doesn't read HTTPS_PROXY by
+   default, so without it the request bypasses the credential-injecting proxy and fails).
+   Fetch the permalink to confirm and hand it to the user:
+   `curl -sS "https://graph.facebook.com/v21.0/<returned id>?fields=permalink"` (plain
+   curl reads HTTPS_PROXY fine, no env var needed there).
+   Report the result (success + the post's instagram.com/p/... link, or the error) back
+   in chat.
 
 ## Instagram auto-publish setup
 

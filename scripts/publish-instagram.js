@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
+/**
+ * Must run with NODE_USE_ENV_PROXY=1 (`npm run publish-ig` already sets this) - Node's
+ * built-in fetch does not read HTTPS_PROXY by default, so without it these requests
+ * bypass the credential-injecting agent proxy and fail (either a misleading auth error,
+ * or the egress network rejecting the direct connection outright).
+ */
+
 const fs = require('fs');
 const path = require('path');
 
