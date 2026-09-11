@@ -58,26 +58,28 @@ audience, with a cross-discipline analogy back to plant engineering.
 Done (2026-09-11) via the classic Graph API (Facebook Login) flow — not the newer
 "Instagram API with Instagram Login" product, which requires the target Instagram
 account to independently register as a Meta developer and repeatedly hit that wall.
-The classic route instead uses a **User Access Token belonging to the app's own admin**
-(who already has developer access) scoped with `instagram_basic`,
-`instagram_content_publish`, `pages_show_list`, `pages_read_engagement`,
-`business_management`, exchanged for a 60-day long-lived token. Even though
-`plantengineer_insights` has no linked Facebook Page (so `/me/accounts` returns
-nothing), its ID is still reachable once connected as an asset in the same Business
-Portfolio ("Tiong's story", business ID `1111206594919812`): `GET
-/{business_id}?fields=id,name` confirms the business, and the Instagram account's own
-ID (found here in `data/instagram-config.json` as `igBusinessAccountId`) works directly
-against `/{ig-user-id}/media` and `/{ig-user-id}/media_publish` with that admin token.
-- The long-lived access token is registered as a Claude Code cloud environment **API
-  credential**: Allowed website `graph.facebook.com`, Bearer token. The token is never
-  visible to this session or in code — `scripts/publish-instagram.js` relies on the
-  agent proxy to attach it. It expires ~60 days from 2026-09-11; when publishing starts
-  failing with an auth error around then, redo the token exchange (Graph API Explorer →
-  Generate Access Token with the 5 scopes above → exchange short-lived for long-lived via
-  `GET oauth/access_token?grant_type=fb_exchange_token&client_id=1844544333390389&client_secret=<app secret>&fb_exchange_token=<short-lived token>`,
-  app secret from 앱 설정 → 기본 설정) and re-register it — have the user do the
-  registration step themselves, the token value should never be pasted into this chat
-  or committed anywhere in this public repo.
+Even though `plantengineer_insights` has no linked Facebook Page (so `/me/accounts`
+returns nothing for a normal user token), its ID is reachable once connected as an
+asset in the same Business Portfolio ("Tiong's story", business ID `1111206594919812`),
+and works directly against `/{ig-user-id}/media` and `/{ig-user-id}/media_publish`.
+
+The credential is a **System User access token** (System User `instagram-automation`,
+id `122098542771476818`, created under the Business Portfolio's 설정 → 사용자 → 시스템
+사용자), not a personal user token — this was a deliberate upgrade from the first
+working version, which used a 60-day long-lived user token. The System User has the
+`플랜트_인사이트` app assigned (앱 관리 role) and the `plantengineer_insights` Instagram
+account assigned (full control) as its two asset grants; its token was generated scoped
+to `instagram_basic` + `instagram_content_publish` with **no expiry** — System User
+tokens don't carry the 60-day limit personal user tokens do, so this one does not need
+periodic renewal.
+- The token is registered as a Claude Code cloud environment **API credential**:
+  Allowed website `graph.facebook.com`, Bearer token. It's never visible to this session
+  or in code — `scripts/publish-instagram.js` relies on the agent proxy to attach it.
+  If it ever needs replacing (revoked, System User deleted, scope change), regenerate
+  from that System User's page (Business Settings → 사용자 → 시스템 사용자 →
+  instagram-automation → 토큰 생성) and have the user re-register it themselves — the
+  token value should never be pasted into this chat or committed anywhere in this
+  public repo.
 - `data/instagram-config.json` holds `igBusinessAccountId` (not secret) as the default
   for `--ig-user-id`.
 
