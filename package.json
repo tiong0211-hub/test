@@ -11,7 +11,8 @@
     "render": "node scripts/render-newsletter.js",
     "send": "node scripts/send-email.js",
     "build-ig-post": "node scripts/build-instagram-post.js",
-    "render-ig": "node scripts/render-instagram-image.js"
+    "render-ig": "node scripts/render-instagram-image.js",
+    "publish-ig": "node scripts/publish-instagram.js"
   },
   "devDependencies": {
     "playwright": "1.63.0"
