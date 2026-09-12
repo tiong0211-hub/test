@@ -22,13 +22,5 @@
     "title": "열교환기 네트워크와 핀치 분석",
     "hint": "공정 전체의 최소 에너지 사용량을 찾는 열통합 설계 기법.",
     "status": "pending"
-  },
-  {
-    "date": "2026-09-12",
-    "category": "경제학",
-    "topicId": "ec-network-effect",
-    "title": "네트워크 효과",
-    "hint": "사용자가 늘어날수록 개별 사용자의 가치가 커지는 원리.",
-    "status": "pending"
   }
 ]

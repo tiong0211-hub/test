@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const { selectTopic } = require('./select-topic');
+const { findHoliday, isWeekend } = require('./is-holiday');
 
 const DEFAULT_IG_HISTORY_PATH = path.join(__dirname, '..', 'data', 'instagram-history.json');
 
@@ -24,8 +25,18 @@ function saveJson(filePath, data) {
  * so Instagram and any past email issues never repeat a topic within the window)
  * and assigns the next Instagram VOL number. Instagram numbering is independent
  * of the old email VOL count - it started fresh at 001 on 2026-09-09.
+ *
+ * Returns { skip: true, reason } without touching any history file if `today` is
+ * a weekend or a listed Korean public holiday - this is a deliberate product
+ * decision (no posts on non-publishing days), enforced here in code rather than
+ * left to the calling session's judgment.
  */
 function buildInstagramPost({ igHistoryPath = DEFAULT_IG_HISTORY_PATH, today = todayKst() } = {}) {
+  const holiday = findHoliday(today);
+  if (holiday || isWeekend(today)) {
+    return { skip: true, date: today, reason: holiday ? holiday.name : '주말' };
+  }
+
   const topic = selectTopic({ today });
   const igHistory = loadJson(igHistoryPath);
 

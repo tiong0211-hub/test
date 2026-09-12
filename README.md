@@ -15,7 +15,10 @@
 
 1. `node scripts/build-instagram-post.js` — `data/topics.json`에서 최근 14일간 다루지
    않은 주제를 하나 선정(`scripts/select-topic.js`, `data/history.json` 기준 중복 회피)하고,
-   인스타그램 전용 발행 번호(VOL)를 `data/instagram-history.json`에서 채번한다.
+   인스타그램 전용 발행 번호(VOL)를 `data/instagram-history.json`에서 채번한다. 오늘이
+   주말이거나 `data/kr-holidays.json`에 등록된 공휴일이면(`scripts/is-holiday.js` 판정)
+   아무 항목도 채번/기록하지 않고 `{skip: true, reason}`만 반환한다 — 이 경우 발행 없이
+   그날 실행은 종료된다.
 2. 그 주제에 맞는 영문 카드 콘텐츠(제목, 리드 문단, 주제별로 새로 그리는 인라인 SVG 다이어그램,
    분야 배지, CTA)를 작성한다 — 매번 같은 상자+화살표 다이어그램을 재사용하지 않고, 그 주제의
    구조(흐름도, 곡선, 비교 등)에 맞춰 새로 디자인한다.
@@ -65,9 +68,11 @@ node scripts/render-instagram-image.js --content=path/to/content.json --out=/tmp
 | `data/topics.json` | 분야별 주제 풀 |
 | `data/history.json` | 날짜별 주제 로그 (이메일·인스타그램 공통 중복 회피용) |
 | `data/instagram-history.json` | 인스타그램 발행 번호(VOL) 로그 — 001부터 별도 채번 |
+| `data/kr-holidays.json` | 발행을 건너뛸 대한민국 공휴일 목록 (연도별 갱신 필요) |
 | `templates/instagram-post-template.html` | 인스타그램 카드 템플릿 (1080×1350, 영문 전용) |
 | `scripts/select-topic.js` | 무작위 주제 선정 (최근 사용 회피 + 분야 균형) |
-| `scripts/build-instagram-post.js` | 주제 선정 + VOL 채번을 한 번에 처리 |
+| `scripts/is-holiday.js` | 주말/공휴일 판정 (`build-instagram-post.js`가 내부에서 호출) |
+| `scripts/build-instagram-post.js` | 주제 선정 + VOL 채번을 한 번에 처리 (주말·공휴일이면 건너뜀) |
 | `scripts/render-instagram-image.js` | 템플릿에 콘텐츠를 채워 PNG 렌더링 (Playwright) |
 | `output/instagram/<날짜>/` | 그날 발행한 content.json / PNG / caption.txt |
 | `.claude/hooks/session-start.sh` | 클라우드 세션 시작 시 `npm install` 자동 실행 |

@@ -6,13 +6,20 @@ audience, with a cross-discipline analogy back to plant engineering.
 **Email sending is discontinued** (`scripts/send-email.js`, `templates/newsletter-template.html`,
 `data/drafts/`) — kept for reference only, do not run. Instagram is now the only channel.
 
-**Post every day, including weekends and public holidays — never skip a day.** The old
-email pipeline had a weekday-only convention (`scripts/is-holiday.js` used to gate it);
-that script has been deleted along with `data/kr-holidays.json`. If a run ever considers
-skipping today for being a weekend/holiday, that reasoning is wrong for this pipeline —
-run the full pipeline below regardless of what day it is. If a scheduled run is ever
-missed for any reason, the next run should still just post *today's* post (see the VOL
-catch-up note in "Conventions" below) rather than trying to backfill the missed day.
+**No posts on weekends or Korean public holidays** — same convention as the old email
+pipeline. `scripts/build-instagram-post.js` enforces this in code (via
+`scripts/is-holiday.js` + `data/kr-holidays.json`): on a skip day it returns
+`{skip: true, date, reason}` *without* touching any history file, rather than a topic/VOL
+entry. If step 1 below prints `skip: true`, do nothing else — no content, no render, no
+commit, just end the turn (a short "오늘은 <reason>이라 건너뜁니다" note is enough; posting
+nothing is the correct, successful outcome for that day, not a failure). The Routine's
+cron schedule is already restricted to weekdays so it mostly won't even fire on
+weekends — this code-level check is what catches Korean public holidays that fall on a
+weekday, and covers any manual/local run too.
+Lunar-calendar holidays (Seollal, Buddha's Birthday, Chuseok) in `data/kr-holidays.json`
+are rough best-effort estimates flagged `"confidence": "low - 검증 필요"` — double-check
+the exact date against a real calendar (data.go.kr or similar) before relying on it for
+a year not yet verified, and add each new year's entries before that year starts.
 
 ## Daily pipeline
 
@@ -20,7 +27,8 @@ catch-up note in "Conventions" below) rather than trying to backfill the missed 
    14-day no-repeat rotation in `data/history.json` via `select-topic.js`) and assigns
    the next Instagram VOL number (`data/instagram-history.json`, independent of the old
    email VOL count — restarted at 001 on 2026-09-09). Prints `{vol, volPadded, category,
-   topicId, title, hint, date}` and appends the entry.
+   topicId, title, hint, date}` and appends the entry — or, on a weekend/holiday, prints
+   `{skip: true, date, reason}` and appends nothing (see above; stop here on a skip).
 2. Using `title`/`hint`, write (in English only — the image targets a broader audience
    than the Korean-only earlier version):
    - `TITLE` (h1, `<br>` where a manual line break helps)
@@ -108,7 +116,8 @@ periodic renewal.
   that renders correctly rather than leaving nothing pushed.
 - The very last two things every run does, no exceptions: `git push`, then deliver the
   PNG + caption to the user. A run that stops before either of those has failed even if
-  everything before it went fine.
+  everything before it went fine — the one exception is a step-1 `skip: true` (weekend
+  or holiday), where doing nothing further *is* the correct outcome, not a failure.
 
 ## Conventions
 
