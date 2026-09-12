@@ -6,6 +6,14 @@ audience, with a cross-discipline analogy back to plant engineering.
 **Email sending is discontinued** (`scripts/send-email.js`, `templates/newsletter-template.html`,
 `data/drafts/`) — kept for reference only, do not run. Instagram is now the only channel.
 
+**Post every day, including weekends and public holidays — never skip a day.** The old
+email pipeline had a weekday-only convention (`scripts/is-holiday.js` used to gate it);
+that script has been deleted along with `data/kr-holidays.json`. If a run ever considers
+skipping today for being a weekend/holiday, that reasoning is wrong for this pipeline —
+run the full pipeline below regardless of what day it is. If a scheduled run is ever
+missed for any reason, the next run should still just post *today's* post (see the VOL
+catch-up note in "Conventions" below) rather than trying to backfill the missed day.
+
 ## Daily pipeline
 
 1. `node scripts/build-instagram-post.js` — picks today's topic (reuses the existing
