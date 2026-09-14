@@ -23,6 +23,17 @@ a year not yet verified, and add each new year's entries before that year starts
 
 ## Daily pipeline
 
+0. **Sync the repo before anything else — do not investigate or "fix" a detached HEAD,
+   it's expected.** A fresh session's checkout of this repo often starts on a detached
+   HEAD, sometimes behind `origin`. Don't treat that as a problem to diagnose — just run:
+   ```
+   git fetch origin claude/plant-engineer-daily-newsletter-gfu1qt
+   git checkout -B claude/plant-engineer-daily-newsletter-gfu1qt origin/claude/plant-engineer-daily-newsletter-gfu1qt
+   ```
+   This always lands you on the branch, at its latest pushed commit, in one step (works
+   whether the prior state was detached, stale, or already correct). Do this before
+   step 1 so topic/VOL selection reads current history files, not stale ones.
+
 1. `node scripts/build-instagram-post.js` — picks today's topic (reuses the existing
    14-day no-repeat rotation in `data/history.json` via `select-topic.js`) and assigns
    the next Instagram VOL number (`data/instagram-history.json`, independent of the old
@@ -50,8 +61,16 @@ a year not yet verified, and add each new year's entries before that year starts
 5. Save `content.json`, the rendered PNG, and `caption.txt` under
    `output/instagram/<date>[-vol<NNN>]/` (append `-vol<NNN>` if that date's folder is
    already taken — e.g. a manual run and the automated run land on the same calendar
-   day), then `git add`/`commit`/push to the current branch. Do not skip the push —
-   an unpushed run has produced nothing.
+   day), then `git add` and `git commit`. Push with an explicit refspec, not a bare
+   `git push`:
+   ```
+   git push origin HEAD:claude/plant-engineer-daily-newsletter-gfu1qt
+   ```
+   This succeeds regardless of whether HEAD is detached or on the branch, so it can't
+   fail with a "not currently on a branch" error even if step 0 was somehow skipped.
+   Do not skip the push — an unpushed run has produced nothing. If the push is rejected
+   as non-fast-forward, `git fetch` + `git rebase origin/claude/plant-engineer-daily-newsletter-gfu1qt`
+   and retry once — don't force-push.
 6. Push the PNG to the user as a downloadable file (`display: "attach"`) and the
    caption as chat text.
 7. **Ask for approval before publishing — never publish without it.** Auto-publish is
