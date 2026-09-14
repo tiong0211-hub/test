@@ -1,0 +1,21 @@
+Protein Folding: Chaperones Bypass the Misfolding Trap
+
+A protein doesn't just fold into any stable shape — it has to reach one specific, functional structure, and the energy landscape guiding it has side valleys where it can get stuck in a stable but useless misfolded state.
+
+Chaperone proteins don't force the correct shape directly; they just block those traps, buying the molecule time to find its way to the true minimum. It's the same problem a startup procedure solves in a plant: a unit can settle into a stable-but-wrong operating point if it isn't guided through the right sequence, so start-up interlocks exist to block the traps along the way, not to force the target state directly.
+
+One topic, a different lens, every morning.
+
+#MolecularBiology #ProteinFolding #Chaperones #ProcessSafety #PlantEngineer
+
+---
+
+단백질 접힘: 샤페론은 오접힘의 함정을 피해간다
+
+단백질은 아무 안정한 모양으로나 접히지 않습니다 — 딱 하나의 기능성 구조에 도달해야 하고, 그걸 이끄는 에너지 지형에는 안정적이지만 쓸모없는 오접힘 상태로 빠질 수 있는 옆 골짜기들이 있습니다.
+
+샤페론 단백질은 올바른 모양을 직접 강제하지 않습니다 — 그저 그 함정들을 막아서, 분자가 진짜 최소점을 찾을 시간을 벌어줄 뿐입니다. 플랜트의 기동 절차가 해결하는 문제와 똑같습니다. 올바른 순서로 유도되지 않으면 설비는 안정적이지만 잘못된 운전점에 안착해버릴 수 있고, 그래서 기동 인터록은 목표 상태를 직접 강제하기보다 그 과정의 함정들을 막는 역할을 합니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#분자생물학 #단백질접힘 #샤페론 #공정안전 #플랜트엔지니어
