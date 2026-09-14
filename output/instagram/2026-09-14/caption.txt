@@ -1,0 +1,21 @@
+Allosteric Regulation: Feedback Without Touching the Active Site
+
+Allosteric regulation lets a molecule change an enzyme's activity by binding a completely different site than the one where the reaction actually happens, twisting the enzyme's shape just enough to speed it up or shut it down.
+
+It's the same logic behind feedback control in a plant: a downstream sensor — a composition analyzer, a discharge pressure transmitter — throttles an upstream valve or compressor without ever touching the reaction itself, using the process's own output to govern its input.
+
+One topic, a different lens, every morning.
+
+#MolecularBiology #Biochemistry #Enzymes #ProcessControl #PlantEngineer
+
+---
+
+알로스테릭 조절: 활성부위를 건드리지 않는 피드백
+
+알로스테릭 조절은 어떤 분자가 반응이 실제로 일어나는 활성부위가 아닌 완전히 다른 자리에 결합해서 효소의 활성을 바꾸는 방식입니다. 그 결합이 효소의 모양을 살짝 비틀어서 반응을 빠르게 하거나 멈추게 만듭니다.
+
+플랜트의 피드백 제어도 같은 원리입니다. 조성 분석기나 토출압력 트랜스미터 같은 하류 센서가, 반응 자체는 건드리지 않은 채 상류의 밸브나 압축기를 조절합니다 — 공정의 결과물이 스스로 그 입력을 통제하는 것이죠.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#분자생물학 #생화학 #효소 #공정제어 #플랜트엔지니어
