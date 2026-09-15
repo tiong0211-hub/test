@@ -38,5 +38,13 @@
     "title": "단백질 접힘과 샤페론",
     "hint": "아미노산 서열이 3차원 구조로 접히는 과정과 오접힘(misfolding) 시 발생하는 문제.",
     "status": "pending"
+  },
+  {
+    "date": "2026-09-16",
+    "category": "기계공학",
+    "topicId": "me-fatigue",
+    "title": "피로파괴와 S-N 곡선",
+    "hint": "반복 하중이 재료의 파단강도보다 훨씬 낮은 응력에서도 균열을 유발하는 원리.",
+    "status": "pending"
   }
 ]

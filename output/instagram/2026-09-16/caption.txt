@@ -1,0 +1,21 @@
+Fatigue Failure: Breaking Below the Rated Strength
+
+Run a material through enough stress cycles and it can crack and fail at a stress far below its rated tensile strength — that's fatigue, and the S-N curve (stress amplitude vs. cycles to failure) is how engineers quantify it.
+
+Steel has an endurance limit: stay below that stress and the part can survive effectively forever. Aluminum never levels off — every stress level eventually fails if cycled enough, so the only design lever left is how many cycles it will actually see. That's why vibrating or thermally cycled plant equipment — piping, rotating machinery, pressure vessels — gets inspected on a schedule tied to cumulative cycles, not a one-time strength check.
+
+One topic, a different lens, every morning.
+
+#MechanicalEngineering #FatigueFailure #MaterialScience #ProcessEngineering #PlantEngineer
+
+---
+
+피로파괴: 정격 강도보다 낮은 응력에서 부러지는 이유
+
+재료에 충분히 많은 응력 사이클을 반복해서 가하면, 정격 인장강도보다 훨씬 낮은 응력에서도 균열이 생기고 파단됩니다 — 이게 피로(fatigue)이고, 이를 정량화하는 도구가 S-N 곡선(응력 진폭 대 파단까지의 사이클 수)입니다.
+
+강철은 피로한도(endurance limit)가 있습니다 — 그 응력 아래에서는 사실상 무한히 버틸 수 있습니다. 반면 알루미늄은 평탄해지지 않습니다 — 충분히 반복하면 어떤 응력에서도 결국 파단됩니다. 그래서 남은 설계 변수는 오직 "실제로 몇 번의 사이클을 겪게 되는가"뿐입니다. 진동이나 열 사이클을 받는 플랜트 설비(배관, 회전기계, 압력용기)가 한 번의 강도 계산이 아니라 누적 사이클 수에 맞춘 점검 주기로 관리되는 이유입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#기계공학 #피로파괴 #재료공학 #공정공학 #플랜트엔지니어
