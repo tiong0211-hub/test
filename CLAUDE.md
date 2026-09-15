@@ -94,6 +94,28 @@ a year not yet verified, and add each new year's entries before that year starts
    Report the result (success + the post's instagram.com/p/... link, or the error) back
    in chat.
 
+## Safety-net Routine
+
+Three separate weekdays in a row (2026-09-12 through 2026-09-15) the main daily Routine
+reported `SUCCEEDED` on the dashboard but pushed nothing — three different root causes
+each time (a dead weekend-skip script being followed by mistake, a detached-HEAD `git
+push` failure, and what looked like a mid-session worker restart). Prompt fixes address
+the first two; the third is an infra-level failure no amount of prompt text can prevent.
+So there is a second Routine ("Plant Engineer Daily Insight — safety net",
+cron `0 1 * * 1-5` UTC, ~1.5h after the main Routine's `30 23 * * 0-4`) that verifies the
+main run actually landed and runs the catch-up pipeline itself if not:
+
+1. Run `node scripts/check-today-posted.js` (read-only — unlike `build-instagram-post.js`,
+   it never assigns a VOL or writes any file, so it's safe to call speculatively). It
+   returns `{skip: true, date, reason}` on a weekend/holiday (nothing was ever expected
+   today — do nothing, end the turn), `{date, posted: true}` if today's post already
+   landed (the main Routine worked — do nothing, end the turn quietly, no need to
+   message the user), or `{date, posted: false}` if today has no post yet.
+2. On `posted: false`, run the full daily pipeline from step 1 of "Daily pipeline" above
+   (build → content → render → caption → commit/push → deliver → ask approval) exactly
+   as the main Routine would have. Mention in the delivery message that this is a
+   safety-net catch-up for a missed automated run, not the regular one.
+
 ## Instagram auto-publish setup
 
 Done (2026-09-11) via the classic Graph API (Facebook Login) flow — not the newer
