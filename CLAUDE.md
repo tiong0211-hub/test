@@ -71,8 +71,12 @@ a year not yet verified, and add each new year's entries before that year starts
    Do not skip the push — an unpushed run has produced nothing. If the push is rejected
    as non-fast-forward, `git fetch` + `git rebase origin/claude/plant-engineer-daily-newsletter-gfu1qt`
    and retry once — don't force-push.
-6. Push the PNG to the user as a downloadable file (`display: "attach"`) and the
-   caption as chat text. **Then stop.** Do not ask "게시할까요?" and do not call
+6. Push the PNG to the user as a downloadable file (`display: "attach"`), then post the
+   caption in chat **inside a fenced code block** (\`\`\` ... \`\`\`, no language tag) —
+   the chat client renders a one-click copy button on code blocks, which a plain text
+   message doesn't get. Nothing else in the same message: keep the code block as its own
+   message (or the last thing in the message) so the copy button copies exactly the
+   caption, not surrounding chat text. **Then stop.** Do not ask "게시할까요?" and do not call
    `scripts/publish-instagram.js` — publishing to Instagram is manual now (the user
    uploads the delivered PNG + caption themselves). See "Why the daily automation was
    simplified" below for why, and "Instagram auto-publish setup" for the mechanism this
