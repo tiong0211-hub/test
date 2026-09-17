@@ -1,0 +1,21 @@
+Entropy: The Ceiling Every Real Process Hits
+
+The second law of thermodynamics says every real energy conversion generates entropy — some usable energy is always degraded into a less useful form, so no real heat engine, compressor, or turbine can reach 100% efficiency, or even its own theoretical (Carnot) ceiling.
+
+Of the energy that goes in, part becomes useful work, part is lost to avoidable inefficiencies (friction, poor design, fouling), and a third part is lost no matter how well the equipment is built — that's the entropy tax the second law charges on every real process. Chasing down the avoidable middle slice, not chasing 100%, is the actual efficiency target for real plant equipment.
+
+One topic, a different lens, every morning.
+
+#Thermodynamics #Entropy #ProcessEfficiency #MechanicalEngineering #PlantEngineer
+
+---
+
+엔트로피: 모든 실제 공정이 부딪히는 한계
+
+열역학 제2법칙은 모든 실제 에너지 변환이 엔트로피를 발생시킨다고 말합니다 — 사용 가능한 에너지의 일부는 항상 덜 쓸모있는 형태로 저하되고, 그래서 실제 열기관, 압축기, 터빈은 100% 효율은 물론 자기 자신의 이론적(카르노) 한계에도 절대 도달할 수 없습니다.
+
+투입된 에너지 중 일부는 유효한 일(work)이 되고, 일부는 피할 수 있는 비효율(마찰, 설계 미흡, 파울링)로 손실되며, 나머지 일부는 설비를 아무리 잘 만들어도 피할 수 없이 손실됩니다 — 이것이 제2법칙이 모든 실제 공정에 부과하는 "엔트로피 세금"입니다. 100%를 좇는 게 아니라 그 가운데 있는 "피할 수 있는" 손실 구간을 줄이는 것이 실제 플랜트 설비의 진짜 효율 목표입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#열역학 #엔트로피 #공정효율 #기계공학 #플랜트엔지니어
