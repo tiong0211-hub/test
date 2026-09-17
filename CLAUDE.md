@@ -72,49 +72,34 @@ a year not yet verified, and add each new year's entries before that year starts
    as non-fast-forward, `git fetch` + `git rebase origin/claude/plant-engineer-daily-newsletter-gfu1qt`
    and retry once — don't force-push.
 6. Push the PNG to the user as a downloadable file (`display: "attach"`) and the
-   caption as chat text.
-7. **Ask for approval before publishing — never publish without it.** Auto-publish is
-   now fully wired up (see "Instagram auto-publish setup" below). After step 6, ask in
-   chat: "게시할까요?" and end the turn. Only when the user replies approving (in this
-   same session — it can be a later message, the session does not need to stay open) do
-   you run:
-   ```
-   NODE_USE_ENV_PROXY=1 node scripts/publish-instagram.js \
-     --image-url=https://raw.githubusercontent.com/tiong0211-hub/test/<branch>/output/instagram/<date-folder>/post-en.png \
-     --caption-file=output/instagram/<date-folder>/caption.txt
-   ```
-   (the repo is public, so the raw.githubusercontent.com URL is reachable by Meta's
-   servers once pushed — publish only after the push in step 5 has landed; `--ig-user-id`
-   defaults to `data/instagram-config.json` so it doesn't need to be passed explicitly.
-   `NODE_USE_ENV_PROXY=1` is required — Node's fetch doesn't read HTTPS_PROXY by
-   default, so without it the request bypasses the credential-injecting proxy and fails).
-   Fetch the permalink to confirm and hand it to the user:
-   `curl -sS "https://graph.facebook.com/v21.0/<returned id>?fields=permalink"` (plain
-   curl reads HTTPS_PROXY fine, no env var needed there).
-   Report the result (success + the post's instagram.com/p/... link, or the error) back
-   in chat.
+   caption as chat text. **Then stop.** Do not ask "게시할까요?" and do not call
+   `scripts/publish-instagram.js` — publishing to Instagram is manual now (the user
+   uploads the delivered PNG + caption themselves). See "Why the daily automation was
+   simplified" below for why, and "Instagram auto-publish setup" for the mechanism this
+   used to use (kept working, just not invoked automatically) in case a specific post
+   is ever a rare exception worth publishing on the user's behalf, on their explicit ask.
 
-## Safety-net Routine
+## Why the daily automation was simplified
 
-Three separate weekdays in a row (2026-09-12 through 2026-09-15) the main daily Routine
-reported `SUCCEEDED` on the dashboard but pushed nothing — three different root causes
-each time (a dead weekend-skip script being followed by mistake, a detached-HEAD `git
-push` failure, and what looked like a mid-session worker restart). Prompt fixes address
-the first two; the third is an infra-level failure no amount of prompt text can prevent.
-So there is a second Routine ("Plant Engineer Daily Insight — safety net",
-cron `0 1 * * 1-5` UTC, ~1.5h after the main Routine's `30 23 * * 0-4`) that verifies the
-main run actually landed and runs the catch-up pipeline itself if not:
+Between 2026-09-12 and 2026-09-17, the daily Routine (and a second "safety-net" Routine
+added to catch its failures) reported `SUCCEEDED` on the dashboard while pushing nothing
+five separate times, for at least four different root causes: a dead weekend-skip script
+followed by mistake, a detached-HEAD `git push` failure, and (twice, with the same
+`worker_epoch: 2` signature in session metadata both times) what looks like a
+mid-session container restart — an infra-level failure no prompt wording can prevent.
+Each time, the user had to notice and ask for a manual catch-up in a live chat.
 
-1. Run `node scripts/check-today-posted.js` (read-only — unlike `build-instagram-post.js`,
-   it never assigns a VOL or writes any file, so it's safe to call speculatively). It
-   returns `{skip: true, date, reason}` on a weekend/holiday (nothing was ever expected
-   today — do nothing, end the turn), `{date, posted: true}` if today's post already
-   landed (the main Routine worked — do nothing, end the turn quietly, no need to
-   message the user), or `{date, posted: false}` if today has no post yet.
-2. On `posted: false`, run the full daily pipeline from step 1 of "Daily pipeline" above
-   (build → content → render → caption → commit/push → deliver → ask approval) exactly
-   as the main Routine would have. Mention in the delivery message that this is a
-   safety-net catch-up for a missed automated run, not the regular one.
+Given that, the auto-publish approval loop (build → render → caption → commit/push →
+ask "게시할까요?" → call `publish-instagram.js` on approval) was removed from the
+unattended path entirely — one less automated step, one less thing to silently fail
+mid-way and burn tokens on. The Routine now only generates content and hands it to the
+user (step 6 above); they publish to Instagram themselves. The `git commit`/`push` step
+is *not* removed — `data/history.json` and `data/instagram-history.json` need a durable,
+shared record across every day's fresh session for topic dedup and VOL numbering to work
+at all, so it stays, and can still fail for the same reasons as before. If a Routine run
+ever reports success with no new commit, the fix is the same one used throughout
+2026-09-12 to 2026-09-17: run the "Daily pipeline" steps manually in a live session
+(skip step 7 - there is no step 7 anymore) and deliver the result the same way.
 
 ## Instagram auto-publish setup
 
