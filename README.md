@@ -36,11 +36,15 @@
 1. **세션 시작 훅**: `.claude/hooks/session-start.sh` + `.claude/settings.json`이 이미
    구성되어 있어, 클라우드 세션이 시작될 때마다 `npm install`을 실행해 Playwright 등
    의존성을 자동으로 준비한다. 별도 조치 불필요.
-2. **Routine 등록**: "Plant Engineer Daily Insight — Instagram post"라는 이름으로
-   `create_new_session_on_fire` Routine이 매일 KST 오전 8시 53분(cron `53 23 * * *`,
-   UTC 기준)에 새 세션을 띄우도록 등록되어 있다. 프롬프트는 위 동작 방식 그대로를
-   지시하며, `CLAUDE.md`의 "Reliability" 절(한 번만 렌더링 → 한 번만 확인 → 반드시
-   push까지)을 명시적으로 참조한다.
+2. **Routine 등록**: "Plant Engineer Daily Insight — content"라는 이름으로
+   `create_new_session_on_fire` Routine이 매일 KST 오전 8시(cron `0 23 * * 0-4`,
+   UTC 기준, 평일만)에 새 세션을 띄우도록 등록되어 있다. 프롬프트는 위 동작 방식
+   그대로를 지시하며, `CLAUDE.md`의 "Reliability" 절(한 번만 렌더링 → 한 번만 확인 →
+   반드시 push까지)을 명시적으로 참조한다. 예전에는 자동 게시 승인 절차(발행 여부를
+   묻고 승인하면 API로 직접 게시)까지 있었으나, 며칠 연속 대시보드는 "성공"인데 실제로는
+   아무것도 안 올라가는 문제가 반복되어(원인이 매번 달랐음 — 죽은 스크립트, git push 실패,
+   세션 재시작 추정 등) 자동화를 다시 단순화했다. 지금은 콘텐츠 생성·전달까지만 자동이고
+   게시는 항상 수동이다.
 3. **API 키 불필요**: 이메일 시절과 달리 이 파이프라인은 외부 서비스 API 키가 필요 없다
    (Playwright 렌더링 + 파일 전달만 사용). Resend 관련 API credential 설정은 더 이상
    필요하지 않다.
