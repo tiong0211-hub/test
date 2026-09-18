@@ -1,0 +1,21 @@
+Corrosion: Let a Sacrificial Metal Lose the Fight
+
+Corrosion is just an electrochemical cell — two metals (or two spots on the same metal) at different potentials, connected through an electrolyte, where one gives up electrons (the anode, which corrodes) and the other receives them (the cathode, which is protected).
+
+Cathodic protection weaponizes that: bolt on a more reactive metal — zinc or magnesium — and it becomes the anode instead, corroding away so the steel structure it's wired to doesn't have to. That's why buried pipelines and ship hulls carry sacrificial anodes that get swapped out on a schedule, not repaired — they're designed to die first.
+
+One topic, a different lens, every morning.
+
+#Corrosion #CathodicProtection #ChemicalEngineering #MaterialScience #PlantEngineer
+
+---
+
+부식: 희생금속이 대신 져주게 하라
+
+부식은 결국 하나의 전기화학 전지입니다 — 전위가 다른 두 금속(또는 같은 금속의 두 지점)이 전해질을 통해 연결되면, 한쪽은 전자를 내주고(양극/anode, 부식되는 쪽) 다른 한쪽은 전자를 받습니다(음극/cathode, 보호받는 쪽).
+
+방식(cathodic protection)은 이 원리를 역이용합니다 — 더 반응성이 큰 금속(아연이나 마그네슘)을 붙이면 그 금속이 대신 양극이 되어 부식되고, 연결된 강철 구조물은 부식되지 않아도 됩니다. 매설 배관이나 선박 선체에 붙어있는 희생양극이 "고치는" 게 아니라 "주기적으로 교체"되는 이유입니다 — 먼저 죽도록 설계된 부품이니까요.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#부식 #방식 #화학공학 #재료공학 #플랜트엔지니어

@@ -54,5 +54,13 @@
     "title": "열역학 제2법칙과 엔트로피",
     "hint": "에너지 변환은 항상 손실을 동반하며 무질서도는 증가한다. 플랜트 효율 한계의 근본 원인.",
     "status": "pending"
+  },
+  {
+    "date": "2026-09-18",
+    "category": "화학공학",
+    "topicId": "ce-corrosion",
+    "title": "부식과 전기화학",
+    "hint": "금속의 산화-환원 반응, 갈바닉 부식과 방식(cathodic protection) 원리.",
+    "status": "pending"
   }
 ]
