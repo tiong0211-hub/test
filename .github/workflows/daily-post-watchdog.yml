@@ -1,0 +1,30 @@
+name: Daily post watchdog
+
+# Zero-AI safety check: runs a fixed delay after the daily content Routine's
+# fire time (weekdays 8am KST) and fails the job if today's Instagram post
+# never got committed to this branch. A failed job triggers GitHub's own
+# failure-notification email automatically — no Claude session involved, so
+# it can't fail the same silent way the Routine has. See CLAUDE.md's "Daily
+# post watchdog" section for what to do when this fires.
+
+on:
+  schedule:
+    # 23:40 UTC = 08:40 KST, weekdays (Sun-Thu in UTC = Mon-Fri in KST) —
+    # 40 minutes after the Routine's 08:00 KST fire time.
+    - cron: '40 23 * * 0-4'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/plant-engineer-daily-newsletter-gfu1qt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/verify-daily-post.js

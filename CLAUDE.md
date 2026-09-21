@@ -85,13 +85,16 @@ a year not yet verified, and add each new year's entries before that year starts
 
 ## Why the daily automation was simplified
 
-Between 2026-09-12 and 2026-09-17, the daily Routine (and a second "safety-net" Routine
-added to catch its failures) reported `SUCCEEDED` on the dashboard while pushing nothing
-five separate times, for at least four different root causes: a dead weekend-skip script
-followed by mistake, a detached-HEAD `git push` failure, and (twice, with the same
-`worker_epoch: 2` signature in session metadata both times) what looks like a
-mid-session container restart — an infra-level failure no prompt wording can prevent.
-Each time, the user had to notice and ask for a manual catch-up in a live chat.
+Between 2026-09-12 and 2026-09-21, the daily Routine (and a second "safety-net" Routine
+added to catch its failures, since deleted) reported `SUCCEEDED` on the dashboard while
+pushing nothing at least seven separate times, for a growing list of root causes: a dead
+weekend-skip script followed by mistake, a detached-HEAD `git push` failure, twice the
+same `worker_epoch: 2` signature in session metadata (looks like a mid-session container
+restart), and — even after deleting and recreating the Routine *and* fully disconnecting
+and reconnecting the environment's GitHub repository connection on 2026-09-18 — a session
+that got as far as `git add` (`staged_files: true` in its metadata) and then simply ended
+its turn without committing or pushing. Each time, the user had to notice (or the watchdog
+below had to catch it) and ask for a manual catch-up in a live chat.
 
 Given that, the auto-publish approval loop (build → render → caption → commit/push →
 ask "게시할까요?" → call `publish-instagram.js` on approval) was removed from the
@@ -101,9 +104,37 @@ user (step 6 above); they publish to Instagram themselves. The `git commit`/`pus
 is *not* removed — `data/history.json` and `data/instagram-history.json` need a durable,
 shared record across every day's fresh session for topic dedup and VOL numbering to work
 at all, so it stays, and can still fail for the same reasons as before. If a Routine run
-ever reports success with no new commit, the fix is the same one used throughout
-2026-09-12 to 2026-09-17: run the "Daily pipeline" steps manually in a live session
-(skip step 7 - there is no step 7 anymore) and deliver the result the same way.
+ever reports success with no new commit, the fix is the same one used throughout: run the
+"Daily pipeline" steps manually in a live session (skip step 7 - there is no step 7
+anymore) and deliver the result the same way.
+
+The pattern across every failure above is the same at bottom: an unattended agent session
+has no guaranteed way to finish every step of a multi-step task, and retrying with a fresh
+trigger or a freshly reconnected repo doesn't change that — it just produces a different
+failure signature next time. Recreating the Routine or reconnecting the repo is a legitimate
+thing to try, but it is not expected to be a durable fix; don't be surprised if a new failure
+mode shows up after either.
+
+## Daily post watchdog (zero-AI safety net)
+
+Added 2026-09-21 after the pattern above kept recurring in new forms even past repo
+reconnection. `.github/workflows/daily-post-watchdog.yml` runs a GitHub Actions cron
+job (`40 23 * * 0-4` UTC = 08:40 KST weekdays, 40 minutes after the Routine's 08:00 KST
+fire time) that does nothing but call `node scripts/verify-daily-post.js` — a plain
+Node script, no LLM involved, that checks whether today's date has a committed
+Instagram post (reusing `scripts/check-today-posted.js`'s weekend/holiday-aware logic)
+and exits non-zero if a non-skip day has no post. **No Claude session is part of this
+check**, so it can't fail the same silent way the Routine has — a failed Actions run
+triggers GitHub's own failure-notification email to repository watchers automatically.
+This catches missed days; it does not fix why they're missed (see above).
+
+**What to do when the watchdog email arrives (or you notice a missed day some other
+way):** come to a live Claude Code session on this repo and ask for a catch-up — e.g.
+"오늘 발행 안됐어" is enough. That session should run the "Daily pipeline" steps above
+manually (steps 0-6). Manual catch-up runs in a live, attended session have been
+reliable throughout this project's history (unlike unattended Routine fires), because a
+human is present to notice if a step doesn't complete — this is the fallback, not a
+last resort.
 
 ## Instagram auto-publish setup
 
