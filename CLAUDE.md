@@ -59,7 +59,10 @@ a year not yet verified, and add each new year's entries before that year starts
    renders the 1080×1350 PNG via Playwright/Chromium (`/opt/pw-browsers/chromium`).
 4. Write a caption combining an English version and a Korean translation in one text
    block (English first, then `---`, then Korean) — see
-   `output/instagram/2026-09-09/caption.txt` for the format used so far.
+   `output/instagram/2026-09-09/caption.txt` for the format used so far. **5 hashtags
+   max, total, not 5 per language** — Instagram has flagged posts with more than that
+   as hitting some limit on upload. Put the (up to 5) English hashtags at the end of
+   the English section as before; the Korean section doesn't need its own hashtag line.
 5. Save `content.json`, the rendered PNG, and `caption.txt` under
    `output/instagram/<date>[-vol<NNN>]/` (append `-vol<NNN>` if that date's folder is
    already taken — e.g. a manual run and the automated run land on the same calendar
