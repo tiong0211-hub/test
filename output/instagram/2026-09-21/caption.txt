@@ -1,0 +1,21 @@
+The Habit Loop: Why Procedures Become Automatic (or Don't)
+
+A habit is a closed loop — a cue triggers a routine, the routine delivers a reward, and the reward strengthens the link between that cue and that routine, so next time the cue alone is enough to trigger it.
+
+Repeat the loop enough times and control shifts from the deliberate, effortful prefrontal cortex to the fast, automatic basal ganglia — the same behavior needs less and less conscious attention to fire. It's why a new operator has to consciously walk through a checklist step by step, while an experienced one's hands are already moving before they've "decided" to — and also why a safety procedure that skips designing a clear cue never really becomes a habit, no matter how many times it's trained.
+
+One topic, a different lens, every morning.
+
+#HabitFormation #Neuroscience #Psychology #ProcessSafety #PlantEngineer
+
+---
+
+습관 루프: 절차가 자동화되는 이유(혹은 안 되는 이유)
+
+습관은 하나의 닫힌 루프입니다 — 신호(cue)가 행동(routine)을 유발하고, 행동이 보상(reward)을 가져오며, 그 보상이 신호와 행동 사이의 연결을 강화해서 다음번엔 신호만으로도 행동이 촉발됩니다.
+
+이 루프를 충분히 반복하면 통제권이 의식적이고 노력이 드는 전전두피질(prefrontal cortex)에서, 빠르고 자동적인 기저핵(basal ganglia)으로 넘어갑니다 — 같은 행동인데 점점 더 적은 의식적 주의로도 작동하게 되는 거죠. 신입 운전원은 체크리스트를 한 줄 한 줄 의식적으로 따라가야 하지만, 숙련된 운전원의 손은 "결정하기도 전에" 이미 움직이고 있는 이유이기도 하고, 명확한 신호(cue) 설계 없이 만들어진 안전 절차는 아무리 많이 훈련해도 진짜 습관이 되지 않는 이유이기도 합니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#습관형성 #신경과학 #심리학 #공정안전 #플랜트엔지니어

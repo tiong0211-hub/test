@@ -54,5 +54,13 @@
     "category": "화학공학",
     "title": "부식과 전기화학",
     "hint": "금속의 산화-환원 반응, 갈바닉 부식과 방식(cathodic protection) 원리."
+  },
+  {
+    "date": "2026-09-21",
+    "vol": 8,
+    "topicId": "ps-habit-formation",
+    "category": "심리학",
+    "title": "습관 형성의 신경학적 메커니즘",
+    "hint": "신호-행동-보상 루프가 반복되며 자동화되는 과정."
   }
 ]
