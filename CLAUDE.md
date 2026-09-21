@@ -1,7 +1,8 @@
 # Plant Engineer Daily Insight
 
-Daily Instagram card generator. One topic per day, explained for a plant-engineering
-audience, with a cross-discipline analogy back to plant engineering.
+Daily Instagram card generator. One topic per day, written for a curious plant-engineering
+audience — but the point is a genuinely interesting idea from *any* field, explained well,
+not a forced analogy back to plant engineering every time. See "Content variety" below.
 
 **Email sending is discontinued** (`scripts/send-email.js`, `templates/newsletter-template.html`,
 `data/drafts/`) — kept for reference only, do not run. Instagram is now the only channel.
@@ -41,17 +42,18 @@ a year not yet verified, and add each new year's entries before that year starts
    topicId, title, hint, date}` and appends the entry — or, on a weekend/holiday, prints
    `{skip: true, date, reason}` and appends nothing (see above; stop here on a skip).
 2. Using `title`/`hint`, write (in English only — the image targets a broader audience
-   than the Korean-only earlier version):
+   than the Korean-only earlier version). **Read "Content variety" below first** — it
+   governs how this step should vary day to day; skipping it is how the diagram and the
+   analogy both start repeating.
    - `TITLE` (h1, `<br>` where a manual line break helps)
-   - `LEAD` (1–3 sentences explaining the concept)
+   - `LEAD` (1–3 sentences explaining the concept — see "Content variety" for tone)
    - `CHART_TITLE` + `DIAGRAM_HTML` — a small inline-SVG/HTML diagram made fresh for
-     *this* topic's structure (a flow, a curve, a comparison — whatever fits; it does
-     not have to be the box-and-arrow layout used for the bullwhip effect). Use the
-     card's own tokens: ink `#1c2b3a`, accent `#b3762c` / `#c9791f`, muted label
-     `#4a5568`/`#8a7a5c`, card bg `#faf6ee`, card border `#e6ddc8`. It renders inside
-     `.chart-box` at 100% width — see `templates/instagram-post-template.html` for the
-     exact slot and `output/instagram/2026-09-09/content.json` for a full worked
-     example.
+     *this* topic's structure. Use the card's own tokens: ink `#1c2b3a`, accent
+     `#b3762c` / `#c9791f`, muted label `#4a5568`/`#8a7a5c`, card bg `#faf6ee`, card
+     border `#e6ddc8`. It renders inside `.chart-box` at 100% width — see
+     `templates/instagram-post-template.html` for the exact slot and
+     `output/instagram/2026-09-09/content.json` for a full worked example of the HTML
+     mechanics (not the visual *shape* — see "Content variety" for that).
    - `BADGE` (category, uppercase English), `CTA` (short, e.g. "Full story → link in bio")
 3. `node scripts/render-instagram-image.js --content=<path.json> --out=<path.png>` —
    renders the 1080×1350 PNG via Playwright/Chromium (`/opt/pw-browsers/chromium`).
@@ -82,6 +84,50 @@ a year not yet verified, and add each new year's entries before that year starts
    simplified" below for why, and "Instagram auto-publish setup" for the mechanism this
    used to use (kept working, just not invoked automatically) in case a specific post
    is ever a rare exception worth publishing on the user's behalf, on their explicit ask.
+
+## Content variety
+
+Added 2026-09-22 after the user flagged that posts were converging on the same feel:
+most LEADs ended with a bolted-on "...and this is just like a plant procedure/loop/
+sensor" sentence, and most diagrams were some flavor of a cycle-with-arrows or a
+stacked/segmented bar, because those are the safe defaults to reach for. Two concrete
+rules to break that:
+
+- **Don't force the plant-engineering bridge.** The LEAD's job is to explain the day's
+  idea well and make it genuinely interesting on its own terms — not to justify its
+  presence in this feed by looping back to a plant. A connection to plant engineering,
+  or to some *other* field entirely, is welcome when it's a sharp, non-obvious
+  observation, but plenty of good LEADs won't have one, and that's fine. If the bridge
+  sentence you're about to write could be swapped onto three other topics with a find-
+  and-replace, it's formulaic — cut it or find a sharper one. Prefer connecting the
+  topic to *whatever other field it most naturally resonates with* over defaulting to
+  plant engineering every time; the audience is plant engineers, not every post needs
+  to be *about* plants.
+- **Vary the diagram's visual archetype.** Before designing `DIAGRAM_HTML`, glance at
+  the last 5-6 folders under `output/instagram/` (sorted by date) and note what shape
+  each one's diagram used. Deliberately pick a *different* archetype than what's shown
+  up recently, rather than defaulting to whatever comes to mind first. Rotate through
+  (non-exhaustive — invent others that fit the topic better):
+  - single curve/plot (axes + one or two traces — S-N curve, T-N curve style)
+  - cycle/loop (nodes connected in a ring) — already overused as of 2026-09, avoid
+    unless the topic is genuinely cyclic and no other shape fits
+  - 2x2 matrix or quadrant chart
+  - timeline / sequence of stages left-to-right
+  - branching tree or network graph
+  - before/after or split comparison (two panels, not a loop)
+  - nested/exploded diagram (a whole broken into labeled parts)
+  - stat callout row (a few large numbers, not a chart) with minimal chrome
+  - spatial/cross-section diagram (something drawn as if sliced open)
+  - spectrum/gradient scale with a marker on it
+  A topic pulled from `data/topics.json` naturally suggests one of these more than the
+  others — trust that instead of reaching for the loop-with-arrows layout by default.
+
+Topic pool: `data/topics.json` now spans seven categories (기계공학, 화학공학,
+분자생물학, 심리학, 경제학, 물리학, 생태학) specifically so that topics with
+different underlying shapes (waves, population curves, food webs) are available and
+naturally pull the diagram away from the loop/bar defaults. Feel free to propose
+adding more categories/topics to `data/topics.json` over time — `select-topic.js`
+picks up whatever's there with no other code changes needed.
 
 ## Why the daily automation was simplified
 
