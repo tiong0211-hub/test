@@ -102,5 +102,13 @@
     "title": "신호전달 캐스케이드",
     "hint": "작은 신호가 단계적으로 증폭되어 세포 반응을 일으키는 원리.",
     "status": "pending"
+  },
+  {
+    "date": "2026-09-30",
+    "category": "물리학",
+    "topicId": "ph-entanglement",
+    "title": "양자 얽힘",
+    "hint": "두 입자가 거리와 무관하게 상관된 상태를 공유하는 현상과 그 한계(정보 전달 불가).",
+    "status": "pending"
   }
 ]
