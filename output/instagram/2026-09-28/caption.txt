@@ -1,0 +1,21 @@
+Economies of Scale: Why Bigger Batches Cost Less Per Unit
+
+Building a factory, buying the equipment, running the R&D — those costs are fixed whether you make 100 units or 100,000. Spread that same fixed cost across more units and the per-unit share of it keeps shrinking, which is why the 10,000th unit is so much cheaper to make than the 100th.
+
+It doesn't fall forever, though. Past some volume, coordination overhead, logistics complexity, and extra management layers start adding their own cost per unit back in — economists call that diseconomies of scale, the point where bigger stops meaning cheaper.
+
+One topic, a different lens, every morning.
+
+#EconomiesOfScale #Economics #Manufacturing #Business #PlantEngineer
+
+---
+
+규모의 경제: 배치가 클수록 개당 비용이 낮아지는 이유
+
+공장을 짓고, 설비를 사고, 연구개발을 하는 비용은 100개를 만들든 10만 개를 만들든 고정되어 있습니다. 같은 고정비를 더 많은 단위에 나눠 부담시키면 단위당 몫은 계속 줄어들고, 그래서 10,000번째 제품이 100번째 제품보다 훨씬 싸게 만들어지는 것입니다.
+
+다만 이게 끝없이 떨어지진 않습니다 — 어느 규모를 넘어서면 조정 비용, 물류 복잡도, 관리 계층이 늘어나면서 단위당 비용이 다시 올라가기 시작합니다. 경제학에서는 이를 "규모의 불경제"라고 부르는데, 커지는 게 더 이상 싸지는 걸 의미하지 않는 지점입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#규모의경제 #경제학 #제조업 #비즈니스 #플랜트엔지니어

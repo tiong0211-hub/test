@@ -86,5 +86,21 @@
     "title": "생태 천이",
     "hint": "교란 이후 선구종에서 극상림까지 군집이 단계적으로 바뀌어가는 과정.",
     "status": "pending"
+  },
+  {
+    "date": "2026-09-28",
+    "category": "경제학",
+    "topicId": "ec-economies-of-scale",
+    "title": "규모의 경제",
+    "hint": "생산량 증가에 따라 단위 비용이 감소하는 원리와 그 한계.",
+    "status": "pending"
+  },
+  {
+    "date": "2026-09-29",
+    "category": "분자생물학",
+    "topicId": "mb-signal-cascade",
+    "title": "신호전달 캐스케이드",
+    "hint": "작은 신호가 단계적으로 증폭되어 세포 반응을 일으키는 원리.",
+    "status": "pending"
   }
 ]
