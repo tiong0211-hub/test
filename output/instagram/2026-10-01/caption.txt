@@ -1,0 +1,21 @@
+The Glass Transition: When Plastic Goes Soft
+
+A polymer doesn't melt like ice — at its glass transition temperature the tangled chains suddenly gain enough room to wriggle, and a hard, brittle solid turns leathery over just a few degrees. Nothing crystallizes or boils; the material is the same, but its stiffness can drop by a factor of a thousand.
+
+That's why a gasket, pipe liner or PVC fitting can be perfectly fine at 20°C and quietly creep or deform once service temperature approaches its Tg. Datasheet "max temperature" is often really a statement about this one number.
+
+One topic, a different lens, every morning.
+
+#PolymerScience #ChemicalEngineering #Materials #ProcessEngineering #PlantEngineer
+
+---
+
+폴리머의 유리전이온도: 플라스틱이 물렁해지는 순간
+
+폴리머는 얼음처럼 녹지 않습니다. 유리전이온도에 이르면 엉켜 있던 사슬이 움직일 여유를 갖게 되어, 딱딱하고 잘 부서지던 고체가 불과 몇 도 사이에 가죽처럼 변합니다. 결정화도 끓음도 없이, 같은 재료의 강성이 1,000분의 1 수준으로 떨어질 수 있습니다.
+
+그래서 가스켓, 라이닝, PVC 피팅은 20°C에서는 멀쩡하다가도 사용 온도가 Tg에 가까워지면 서서히 늘어나거나 변형됩니다. 데이터시트의 "최대 사용 온도"는 사실상 이 숫자에 대한 이야기인 경우가 많습니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
+
+#고분자 #화학공학 #재료공학 #공정공학 #플랜트엔지니어

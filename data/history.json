@@ -110,5 +110,13 @@
     "title": "양자 얽힘",
     "hint": "두 입자가 거리와 무관하게 상관된 상태를 공유하는 현상과 그 한계(정보 전달 불가).",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-01",
+    "category": "화학공학",
+    "topicId": "ce-glass-transition",
+    "title": "폴리머의 유리전이온도",
+    "hint": "고분자가 유리질에서 고무질로 바뀌는 온도와 재료 열화의 관계.",
+    "status": "pending"
   }
 ]
