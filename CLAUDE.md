@@ -164,6 +164,18 @@ failure signature next time. Recreating the Routine or reconnecting the repo is 
 thing to try, but it is not expected to be a durable fix; don't be surprised if a new failure
 mode shows up after either.
 
+**2026-09-30 update — a real fix, maybe:** the Routine's `session_request` had an
+empty `sources`/`outcomes` config the whole time (no repo explicitly attached at the
+trigger level, only via the environment's default checkout). The user added an
+explicit repo connector to the Routine in the web UI's "커넥터" tab on 2026-09-29;
+the very next fire (2026-09-30) succeeded — fastest run yet (46s, ~61k tokens,
+`worker_epoch: 1`), and `get_session` on that run confirmed
+`session_context.sources`/`outcomes` were now populated with the repo, where every
+prior run had them empty. One success isn't proof after this many false dawns, but
+it's the first change that shows up as a concrete before/after config difference
+rather than just "let's try recreating something." Keep watching; if failures
+resume, this wasn't it either.
+
 ## Daily post watchdog (zero-AI safety net)
 
 Added 2026-09-21 after the pattern above kept recurring in new forms even past repo
@@ -184,6 +196,15 @@ manually (steps 0-6). Manual catch-up runs in a live, attended session have been
 reliable throughout this project's history (unlike unattended Routine fires), because a
 human is present to notice if a step doesn't complete — this is the fallback, not a
 last resort.
+
+**2026-09-30: GitHub email notifications for this workflow turned off by the user**
+(repo Watch → Custom → unchecked "Actions"), once misses became rare enough that the
+emails felt like noise. The workflow itself still runs and still records
+success/failure — check `.github/workflows/daily-post-watchdog.yml`'s run history in
+the Actions tab (or via the GitHub API) instead of waiting for an email. This means a
+missed day is *silent* again unless someone actively checks — the difference from the
+pre-watchdog era is that the check is a one-look Actions-tab glance, not a full
+manual re-run of the pipeline.
 
 ## Instagram auto-publish setup
 
