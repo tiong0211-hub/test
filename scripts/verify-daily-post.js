@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 
-// Non-AI watchdog for CI: exits non-zero (failing the GitHub Actions job, which
-// triggers GitHub's own failure-notification email) if today's Instagram post
-// never got committed. Runs a fixed delay after the daily Routine's fire time.
+// Non-AI watchdog for CI: reports whether today's Instagram post got committed.
+// Always exits 0 (no GitHub failure-notification email) - the user disabled
+// that email on 2026-09-30. Check this job's log in the Actions tab instead.
 // See CLAUDE.md's "Daily post watchdog" section for what to do when this fires.
 
 const { checkTodayPosted } = require('./check-today-posted');
@@ -18,7 +18,7 @@ if (result.skip) {
 
 if (!result.posted) {
   console.error(`No Instagram post found for ${result.date} — today's automated run did not land.`);
-  process.exit(1);
+  process.exit(0);
 }
 
 console.log(`OK — ${result.date} already posted.`);

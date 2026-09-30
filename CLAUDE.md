@@ -197,14 +197,19 @@ reliable throughout this project's history (unlike unattended Routine fires), be
 human is present to notice if a step doesn't complete — this is the fallback, not a
 last resort.
 
-**2026-09-30: GitHub email notifications for this workflow turned off by the user**
-(repo Watch → Custom → unchecked "Actions"), once misses became rare enough that the
-emails felt like noise. The workflow itself still runs and still records
-success/failure — check `.github/workflows/daily-post-watchdog.yml`'s run history in
-the Actions tab (or via the GitHub API) instead of waiting for an email. This means a
-missed day is *silent* again unless someone actively checks — the difference from the
-pre-watchdog era is that the check is a one-look Actions-tab glance, not a full
-manual re-run of the pipeline.
+**2026-09-30: the failure-email trigger was removed at the source.** The user asked
+for the Gmail failure notification itself to be deleted, not just silenced via
+personal GitHub Watch settings. Since that email is GitHub's automatic reaction to a
+job's conclusion being `failure`, the fix was in `scripts/verify-daily-post.js`: a
+missed day now still logs clearly (`console.error` + the same JSON result) but the
+script always `process.exit(0)`s, so the job conclusion is always `success` and no
+email ever fires, regardless of anyone's Watch settings. The workflow still runs on
+the same schedule and the log still says exactly what it always said — check
+`.github/workflows/daily-post-watchdog.yml`'s run log in the Actions tab (or via the
+GitHub API) to see whether a day was missed. This means a missed day is *silent*
+again unless someone actively checks — the difference from the pre-watchdog era is
+that the check is a one-look Actions-tab log read, not a full manual re-run of the
+pipeline.
 
 ## Instagram auto-publish setup
 
