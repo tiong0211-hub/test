@@ -96,16 +96,18 @@ sensor" sentence, and most diagrams were some flavor of a cycle-with-arrows or a
 stacked/segmented bar, because those are the safe defaults to reach for. Two concrete
 rules to break that:
 
-- **Don't force the plant-engineering bridge.** The LEAD's job is to explain the day's
-  idea well and make it genuinely interesting on its own terms — not to justify its
-  presence in this feed by looping back to a plant. A connection to plant engineering,
-  or to some *other* field entirely, is welcome when it's a sharp, non-obvious
-  observation, but plenty of good LEADs won't have one, and that's fine. If the bridge
-  sentence you're about to write could be swapped onto three other topics with a find-
-  and-replace, it's formulaic — cut it or find a sharper one. Prefer connecting the
-  topic to *whatever other field it most naturally resonates with* over defaulting to
-  plant engineering every time; the audience is plant engineers, not every post needs
-  to be *about* plants.
+- **Don't force the plant-engineering bridge — but don't drop the cross-field lens
+  either.** "One topic, a different lens, every morning" (the line every caption ends
+  on) is the actual premise of this feed, not just a sign-off: every post should still
+  land one genuine analogy to *some* other field, not stop at "explain today's concept
+  well" on its own. What changed on 2026-09-22 is *which* field that's allowed to be —
+  it doesn't have to be plant engineering every time, and it must be a sharp,
+  non-obvious observation rather than a bolted-on closer. If the bridge sentence you're
+  about to write could be swapped onto three other topics with a find-and-replace,
+  it's formulaic — cut it and find a sharper one, in whichever field actually
+  illuminates this topic best (plant engineering included, when it's genuinely the
+  best fit, not the default fallback). But do find one; a LEAD that only explains the
+  topic in its own field's terms hasn't delivered what the tagline promises.
 - **Vary the diagram's visual archetype.** Before designing `DIAGRAM_HTML`, glance at
   the last 5-6 folders under `output/instagram/` (sorted by date) and note what shape
   each one's diagram used. Deliberately pick a *different* archetype than what's shown
