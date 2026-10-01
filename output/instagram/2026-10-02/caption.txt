@@ -1,0 +1,19 @@
+Game Theory and the Nash Equilibrium
+
+A Nash equilibrium is a set of choices where no player can do better by changing their own strategy alone — which makes it stable, but not necessarily good.
+
+Think of a ball resting in a valley in physics: every single nudge rolls it back, so it's a stable state — even when a deeper valley exists that only a coordinated push could reach. In the prisoner's dilemma, mutual defection is exactly that shallow valley: neither side can improve by moving alone, yet both would be better off cooperating.
+
+One topic, a different lens, every morning.
+
+#GameTheory #NashEquilibrium #Economics #DecisionMaking #PlantEngineer
+
+---
+
+게임이론과 내시균형
+
+내시균형은 어떤 플레이어도 자기 전략만 혼자 바꿔서는 더 나아질 수 없는 선택의 조합입니다. 안정적이지만, 반드시 좋은 상태는 아닙니다.
+
+물리학의 골짜기에 놓인 공을 떠올려 보세요. 어떤 작은 충격도 공을 제자리로 돌려놓기 때문에 안정적이지만, 협력해서 한꺼번에 밀어야만 닿을 수 있는 더 깊은 골짜기가 있을 수도 있습니다. 죄수의 딜레마에서 서로 배신하는 상태가 바로 그 얕은 골짜기입니다. 혼자 움직여서는 누구도 나아질 수 없지만, 둘 다 협력하면 모두에게 더 좋습니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.

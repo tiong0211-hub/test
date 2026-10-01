@@ -118,5 +118,13 @@
     "title": "폴리머의 유리전이온도",
     "hint": "고분자가 유리질에서 고무질로 바뀌는 온도와 재료 열화의 관계.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-02",
+    "category": "경제학",
+    "topicId": "ec-nash-equilibrium",
+    "title": "게임이론과 내시균형",
+    "hint": "상대의 전략을 고려한 최선의 선택이 안정 상태에 이르는 원리.",
+    "status": "pending"
   }
 ]
