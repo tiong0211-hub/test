@@ -108,6 +108,16 @@ rules to break that:
   illuminates this topic best (plant engineering included, when it's genuinely the
   best fit, not the default fallback). But do find one; a LEAD that only explains the
   topic in its own field's terms hasn't delivered what the tagline promises.
+  **The two fields in the analogy can be any pair from `data/topics.json`'s
+  categories, or beyond it — neither one has to be plant engineering.** A molecular
+  biology topic can reach for a psychology analogy (e.g. signal amplification ↔ how a
+  rumor or a panic escalates past a few people); a psychology topic can reach for
+  physics (e.g. social proof's tipping point ↔ a phase transition's critical point —
+  both are "nothing happens, then suddenly everything does" at one threshold value);
+  an economics topic can reach for ecology (economies of scale ↔ metabolic scaling
+  laws, where bigger organisms use energy more efficiently per unit mass, up to a
+  point). Pick whichever two fields actually share the real structure, not just
+  surface vocabulary.
 - **Vary the diagram's visual archetype.** Before designing `DIAGRAM_HTML`, glance at
   the last 5-6 folders under `output/instagram/` (sorted by date) and note what shape
   each one's diagram used. Deliberately pick a *different* archetype than what's shown
