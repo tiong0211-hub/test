@@ -1,0 +1,19 @@
+The Bullwhip Effect in Supply Chains
+
+A small wobble in what customers buy becomes a violent swing in what factories build, because every link in the chain pads its orders to cover the uncertainty it can't see. It's the same physics as a phantom traffic jam: one driver taps the brakes, each car behind brakes a little harder, and a mile back everyone is stopped for no visible reason.
+
+The fix isn't smarter forecasting at every link — it's sharing the real demand signal (point-of-sale data) with everyone upstream, so no one has to guess what the next tier is thinking. Shorter lead times and smaller order batches shrink the whip further.
+
+One topic, a different lens, every morning.
+
+#Economics #SupplyChain #BullwhipEffect #SystemsThinking #PlantEngineer
+
+---
+
+공급망의 채찍 효과
+
+고객 수요의 작은 흔들림이 공장의 큰 생산 변동으로 증폭됩니다. 공급망의 각 단계가 보이지 않는 불확실성에 대비해 주문을 조금씩 부풀리기 때문입니다. 원인 모를 정체가 생기는 도로와 같은 원리입니다. 한 운전자가 살짝 브레이크를 밟으면 뒤 차들이 점점 더 세게 밟고, 1km 뒤에서는 아무 이유 없이 모두 멈춰 섭니다.
+
+해법은 단계마다 예측을 더 잘하는 것이 아니라, 실제 수요 신호(판매 시점 데이터)를 상류 전체와 공유하는 것입니다. 리드타임을 줄이고 주문 단위를 작게 하면 채찍의 진폭은 더 줄어듭니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
