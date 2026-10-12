@@ -1,0 +1,19 @@
+Friction & Lubrication: The Stribeck Regimes
+
+Speed up a sliding surface and oil gets dragged into the gap, lifting the two metals apart until friction drops by more than an order of magnitude. Your knees run on the same trick: synovial fluid only forms a protective film once you're moving, which is why joints feel stiff after sitting and loosen up after a few steps.
+
+Boundary, mixed, fluid film: the Stribeck curve maps how friction falls as speed and oil viscosity rise or load eases. Design bearings to live in the fluid-film regime and wear nearly disappears.
+
+One topic, a different lens, every morning.
+
+#MechanicalEngineering #Tribology #Lubrication #Engineering #PlantEngineer
+
+---
+
+마찰과 윤활: 스트라이벡 곡선의 세 영역
+
+미끄러지는 면의 속도가 빨라지면 오일이 틈 사이로 끌려 들어가 두 금속을 떼어놓고, 마찰은 10배 이상 줄어듭니다. 우리 무릎도 같은 원리로 움직입니다. 관절액은 몸이 움직일 때에야 보호막을 형성하기 때문에, 오래 앉아 있다 일어나면 뻣뻣하다가 몇 걸음 걸으면 풀리는 것입니다.
+
+경계윤활, 혼합윤활, 유체윤활. 스트라이벡 곡선은 속도와 점도가 오르고 하중이 줄수록 마찰이 어떻게 떨어지는지 보여줍니다. 베어링을 유체윤활 영역에서 쓰도록 설계하면 마모는 거의 사라집니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
