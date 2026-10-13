@@ -158,5 +158,13 @@
     "title": "마찰과 윤활 이론",
     "hint": "경계윤활에서 유체윤활로의 전이(스트라이벡 곡선)와 마모 저감 원리.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-14",
+    "category": "심리학",
+    "topicId": "ps-habit-formation",
+    "title": "습관 형성의 신경학적 메커니즘",
+    "hint": "신호-행동-보상 루프가 반복되며 자동화되는 과정.",
+    "status": "pending"
   }
 ]
