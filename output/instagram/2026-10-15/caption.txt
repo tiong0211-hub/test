@@ -1,0 +1,19 @@
+Distillation: Small Edges, Stacked
+
+Vapor above a boiling ethanol–water mix is only slightly richer in ethanol than the liquid beneath it. A column repeats that tiny sorting step on tray after tray, and reflux sends liquid back down so every stage gets another pass. The trade-off: more stages or more reflux means purer product, but more capital and more energy.
+
+The same logic drives natural selection. A few percent of advantage per generation is invisible once and unstoppable when the same filter is applied again and again.
+
+One topic, a different lens, every morning.
+
+#ChemicalEngineering #Distillation #ProcessEngineering #NaturalSelection #PlantEngineer
+
+---
+
+증류: 작은 차이를 쌓아 올리기
+
+끓는 에탄올–물 혼합액 위의 증기는 아래 액체보다 에탄올이 아주 조금 더 많을 뿐입니다. 증류탑은 이 작은 분리를 단마다 반복하고, 환류로 액체를 되돌려 보내 매 단이 다시 한 번 걸러내게 합니다. 단수나 환류비를 늘리면 순도는 올라가지만 설비비와 에너지도 늘어나는 트레이드오프가 있습니다.
+
+자연선택도 같은 원리입니다. 세대당 몇 %의 우위는 한 번만 보면 보이지 않지만, 같은 필터가 반복되면 막을 수 없는 힘이 됩니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
