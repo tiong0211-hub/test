@@ -174,5 +174,13 @@
     "title": "증류와 기액 상평형",
     "hint": "휘발도 차이를 이용한 분리, 이론단수와 환류비의 트레이드오프.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-16",
+    "category": "물리학",
+    "topicId": "ph-entanglement",
+    "title": "양자 얽힘",
+    "hint": "두 입자가 거리와 무관하게 상관된 상태를 공유하는 현상과 그 한계(정보 전달 불가).",
+    "status": "pending"
   }
 ]
