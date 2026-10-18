@@ -1,0 +1,19 @@
+Network Effects: Why Crowds Compound
+
+A phone is worthless to its only owner, yet every new subscriber adds a possible connection to everyone already there — so users grow linearly while possible links grow roughly with their square. Going from 3 users to 10 is about 3x the people but 15x the links.
+
+Hemoglobin works the same way: each oxygen that binds makes the next one bind more easily, which is why it loads up sharply instead of gradually. Value that feeds on itself looks the same in a marketplace and in a molecule.
+
+One topic, a different lens, every morning.
+
+#NetworkEffect #Economics #Metcalfe #Hemoglobin #PlantEngineer
+
+---
+
+네트워크 효과: 왜 군중은 복리로 불어날까
+
+전화기는 혼자 가진 사람에게는 쓸모가 없지만, 새 가입자가 한 명 늘 때마다 기존 모든 사용자와 연결될 가능성이 하나씩 더해집니다. 그래서 사용자는 선형으로 늘어도 가능한 연결 수는 대략 제곱에 비례해 늘어납니다. 3명에서 10명이 되면 사람은 약 3배, 연결은 15배가 됩니다.
+
+헤모글로빈도 같은 방식으로 작동합니다. 산소 분자가 하나 결합할 때마다 다음 산소가 더 쉽게 결합해서, 서서히가 아니라 가파르게 산소를 채웁니다. 스스로를 키우는 가치는 시장에서도, 분자 안에서도 같은 모양입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.

@@ -182,5 +182,13 @@
     "title": "양자 얽힘",
     "hint": "두 입자가 거리와 무관하게 상관된 상태를 공유하는 현상과 그 한계(정보 전달 불가).",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-19",
+    "category": "경제학",
+    "topicId": "ec-network-effect",
+    "title": "네트워크 효과",
+    "hint": "사용자가 늘어날수록 개별 사용자의 가치가 커지는 원리.",
+    "status": "pending"
   }
 ]
