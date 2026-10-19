@@ -1,0 +1,19 @@
+Carrying Capacity: Why Growth Bends
+
+Every population starts out nearly exponential, but each new individual leaves less food, space and light for the rest, so growth slows and levels off at the environment's carrying capacity, K. The result is an S-curve whose steepest point sits at exactly half of K.
+
+A chemical reaction that feeds its own catalyst follows the same curve: it accelerates while there is plenty of reactant, then stalls as the reactant runs out. Growth that feeds on itself always meets the thing it feeds on.
+
+One topic, a different lens, every morning.
+
+#CarryingCapacity #Ecology #LogisticGrowth #Population #PlantEngineer
+
+---
+
+환경수용력: 성장은 왜 휘어질까
+
+모든 개체군은 처음에는 거의 지수적으로 늘어나지만, 개체가 하나 늘 때마다 나머지가 쓸 먹이와 공간, 빛이 줄어듭니다. 그래서 성장 속도는 느려지다가 환경수용력 K에서 멈춥니다. 그 결과가 S자 곡선이고, 가장 가파른 지점은 정확히 K의 절반입니다.
+
+스스로의 촉매를 만들어내는 화학 반응도 같은 곡선을 그립니다. 반응물이 충분할 때는 빨라지고, 반응물이 바닥나면 멈춥니다. 스스로를 키우는 성장은 결국 자신이 먹고 사는 자원의 한계를 만납니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.

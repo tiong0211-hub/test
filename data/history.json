@@ -190,5 +190,13 @@
     "title": "네트워크 효과",
     "hint": "사용자가 늘어날수록 개별 사용자의 가치가 커지는 원리.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-20",
+    "category": "생태학",
+    "topicId": "eco-carrying-capacity",
+    "title": "환경수용력과 로지스틱 성장",
+    "hint": "자원 한계에 따라 개체군 성장이 S자 곡선을 그리며 포화되는 원리.",
+    "status": "pending"
   }
 ]
