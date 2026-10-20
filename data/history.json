@@ -198,5 +198,13 @@
     "title": "환경수용력과 로지스틱 성장",
     "hint": "자원 한계에 따라 개체군 성장이 S자 곡선을 그리며 포화되는 원리.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-21",
+    "category": "분자생물학",
+    "topicId": "mb-homeostasis",
+    "title": "항상성 유지 피드백 루프",
+    "hint": "음성 피드백을 통해 시스템을 안정 상태로 되돌리는 원리.",
+    "status": "pending"
   }
 ]
