@@ -206,5 +206,13 @@
     "title": "항상성 유지 피드백 루프",
     "hint": "음성 피드백을 통해 시스템을 안정 상태로 되돌리는 원리.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-22",
+    "category": "심리학",
+    "topicId": "ps-cognitive-load",
+    "title": "인지 부하 이론",
+    "hint": "작업기억의 용량 한계와 정보 처리 과부하가 실수를 유발하는 원리.",
+    "status": "pending"
   }
 ]
