@@ -1,0 +1,19 @@
+Resonance and Natural Frequency
+
+Every structure has a pitch it prefers to ring at, and a push timed to that pitch adds up instead of cancelling — so a tiny force, repeated at the right rhythm, can grow into a destructive swing. Economists see the same trap in credit: lending that rises and falls in step with the business cycle doesn't just ride the wave, it pushes it higher.
+
+That's why rotating machinery is designed so its running speed stays well clear of any natural frequency, and why a pump that shakes only at one particular speed is a warning, not a quirk. Push too slowly and the structure just follows along; push too fast and the pushes cancel out. Only when the rhythm matches does each push stack on the last.
+
+One topic, a different lens, every morning.
+
+#MechanicalEngineering #Resonance #Vibration #RotatingEquipment #PlantEngineer
+
+---
+
+공진과 고유진동수
+
+모든 구조물에는 스스로 울리기 좋아하는 진동수가 있습니다. 그 진동수에 맞춰 힘을 주면 힘이 상쇄되지 않고 차곡차곡 쌓여, 아주 작은 힘도 올바른 리듬으로 반복되면 파괴적인 진동으로 커질 수 있습니다. 경제학에서도 같은 함정이 있습니다. 경기 순환에 맞춰 늘고 줄어드는 대출은 파도를 타는 데 그치지 않고 파도를 더 키웁니다.
+
+그래서 회전기계는 운전 속도가 어떤 고유진동수와도 충분히 떨어지도록 설계하며, 특정 속도에서만 떠는 펌프는 단순한 버릇이 아니라 경고 신호입니다. 너무 느리게 밀면 구조물은 그냥 따라 움직이고, 너무 빠르게 밀면 힘이 서로 상쇄됩니다. 리듬이 맞을 때만 매번의 힘이 앞의 힘 위에 쌓입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
