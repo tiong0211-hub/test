@@ -1,0 +1,19 @@
+Phase Transitions and the Critical Point
+
+Heat water and at 100°C it doesn't just get hotter — it abruptly becomes steam, a sudden jump in density. But raise the pressure and that jump shrinks, until at the critical point it vanishes entirely: liquid and gas become indistinguishable, and fluctuations ripple at every scale.
+
+A system balanced right there is why a trivial nudge can sway a crowd or a market perched at its own tipping point — nothing happens, then suddenly everything does.
+
+One topic, a different lens, every morning.
+
+#Physics #PhaseTransition #CriticalPoint #Thermodynamics #PlantEngineer
+
+---
+
+상전이와 임계점
+
+물은 100°C에서 단순히 더 뜨거워지는 게 아니라 밀도가 갑자기 뛰며 수증기로 바뀝니다. 하지만 압력을 높이면 그 불연속적인 점프는 점점 작아지고, 임계점에서는 완전히 사라집니다. 액체와 기체의 구분이 없어지고 모든 스케일에서 요동이 퍼져 나갑니다.
+
+바로 그 지점에 놓인 계는 아주 사소한 자극에도 크게 반응합니다. 티핑포인트 직전의 군중이나 시장이 작은 계기 하나로 출렁이는 이유와 같습니다 — 아무 일도 없다가, 갑자기 모든 게 바뀝니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
