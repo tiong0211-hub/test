@@ -1,0 +1,19 @@
+The Arrhenius Equation: Why Heat Is Exponential
+
+Reaction rate follows k = A·e^(−Ea/RT): only molecules with enough energy to clear the activation barrier react, and a small rise in temperature fattens that high-energy tail disproportionately. For a typical barrier (~50 kJ/mol), +10 °C roughly doubles the rate, +30 °C gives ~6×, and +100 °C gives ~160×.
+
+It's the same math as height in a crowd: nudge the average up a little and the number of people over two metres multiplies. Thresholds turn small shifts in the middle into huge changes in the tail — which is why catalysts (lowering Ea) and reactor temperature control matter so much in process design.
+
+One topic, a different lens, every morning.
+
+#ChemicalEngineering #Arrhenius #ReactionKinetics #ProcessEngineering #PlantEngineer
+
+---
+
+아레니우스 방정식: 열이 지수적인 이유
+
+반응속도는 k = A·e^(−Ea/RT)를 따릅니다. 활성화 장벽을 넘을 만큼 에너지가 큰 분자만 반응하고, 온도가 조금만 올라도 이 고에너지 꼬리 부분이 훨씬 크게 늘어납니다. 일반적인 장벽(약 50 kJ/mol)에서 +10 °C는 속도를 약 2배, +30 °C는 약 6배, +100 °C는 약 160배로 만듭니다.
+
+사람들 키와 같은 수학입니다. 평균이 조금만 올라가도 2미터가 넘는 사람 수는 몇 배로 늘어납니다. 문턱값은 중심부의 작은 변화를 꼬리 부분의 큰 변화로 바꿔 주고, 그래서 촉매(Ea 낮추기)와 반응기 온도 제어가 공정 설계에서 그토록 중요합니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
