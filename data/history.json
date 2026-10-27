@@ -238,5 +238,13 @@
     "title": "반응속도론과 아레니우스 방정식",
     "hint": "온도가 반응속도에 지수적으로 영향을 미치는 원리. 촉매 공정 설계의 기초.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-28",
+    "category": "경제학",
+    "topicId": "ec-economies-of-scale",
+    "title": "규모의 경제",
+    "hint": "생산량 증가에 따라 단위 비용이 감소하는 원리와 그 한계.",
+    "status": "pending"
   }
 ]

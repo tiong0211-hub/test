@@ -1,0 +1,15 @@
+Economies of Scale: Why Bigger Gets Cheaper — Until It Doesn't
+
+Spread a fixed cost over more units and the cost per unit falls, until coordination overhead and bottlenecks push it back up. Biology found the same curve: a mouse burns far more energy per gram than an elephant (metabolic rate scales as mass^¾), yet no animal grows without limit — the square–cube law eventually starves the middle.
+
+One topic, a different lens, every morning.
+
+#Economics #EconomiesOfScale #Scaling #SystemsThinking #PlantEngineer
+
+---
+
+규모의 경제: 커질수록 싸지다가, 어느 순간 멈춘다
+
+고정비를 더 많은 단위에 나눠 담으면 단위당 비용이 떨어지지만, 조정 비용과 병목이 커지면 다시 올라갑니다. 생물학에도 같은 곡선이 있습니다. 생쥐는 코끼리보다 그램당 에너지를 훨씬 많이 쓰지만(대사율은 질량^¾에 비례), 어떤 동물도 무한정 커지지 못합니다. 제곱-세제곱 법칙 때문에 결국 몸 중심부까지 공급이 닿지 않기 때문입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
