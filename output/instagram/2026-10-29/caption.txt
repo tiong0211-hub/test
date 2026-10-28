@@ -1,0 +1,19 @@
+Why Friction Drops When Things Speed Up
+
+At low speed or heavy load, two metal surfaces touch peak to peak and friction is high; as speed rises, oil is dragged into the gap until a film lifts the surfaces apart — the Stribeck transition, where wear nearly vanishes.
+
+Engineers read this on the Stribeck curve: boundary lubrication (surfaces touching), mixed lubrication (film shares the load), then hydrodynamic lubrication (full film, friction at its minimum). Your knee runs the same curve: standing up from a chair squeezes the cartilage thin, while steady walking pumps lubricating fluid back in. It's why a bearing is most vulnerable at start-up and shutdown, not at full speed.
+
+One topic, a different lens, every morning.
+
+#MechanicalEngineering #Tribology #Lubrication #Engineering #PlantEngineer
+
+---
+
+속도가 오르면 마찰이 줄어드는 이유
+
+저속이거나 하중이 클 때 두 금속 표면은 돌기끼리 맞닿아 마찰이 큽니다. 속도가 오르면 오일이 틈으로 끌려 들어가 막이 표면을 띄워 올리고, 마모가 거의 사라지는 스트라이벡 전이가 일어납니다.
+
+엔지니어는 이를 스트라이벡 곡선으로 읽습니다: 경계윤활(표면 접촉) → 혼합윤활(유막이 하중을 분담) → 유체윤활(완전한 유막, 마찰 최소). 우리 무릎도 같은 곡선을 탑니다. 의자에서 일어설 때는 연골이 얇게 눌리고, 꾸준히 걸으면 윤활액이 다시 흘러듭니다. 베어링이 전속 운전 중이 아니라 기동·정지 때 가장 취약한 이유입니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.

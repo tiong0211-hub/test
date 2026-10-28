@@ -246,5 +246,13 @@
     "title": "규모의 경제",
     "hint": "생산량 증가에 따라 단위 비용이 감소하는 원리와 그 한계.",
     "status": "pending"
+  },
+  {
+    "date": "2026-10-29",
+    "category": "기계공학",
+    "topicId": "me-friction",
+    "title": "마찰과 윤활 이론",
+    "hint": "경계윤활에서 유체윤활로의 전이(스트라이벡 곡선)와 마모 저감 원리.",
+    "status": "pending"
   }
 ]
