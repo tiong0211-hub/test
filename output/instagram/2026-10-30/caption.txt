@@ -1,0 +1,19 @@
+Why Hot Things Change Color
+
+Every hot object glows, and the peak of its spectrum slides toward shorter wavelengths as it heats up: Wien's law, λ_peak ≈ 2,898 µm·K / T. That's why iron goes dull red, then yellow, then white-hot, and why the Sun peaks in green-yellow light while a 1,000 K furnace peaks in the infrared.
+
+Planck's law gave the full curve, and fitting it required energy to come in discrete quanta, the birth of quantum mechanics. Astronomers turned it into a thermometer for the universe: a star's color alone gives its surface temperature, no probe required. Pyrometers in plant furnaces do the same thing from across the room.
+
+One topic, a different lens, every morning.
+
+#Physics #BlackbodyRadiation #PlanckLaw #Astronomy #PlantEngineer
+
+---
+
+뜨거운 물체의 색이 변하는 이유
+
+뜨거운 물체는 모두 빛을 내며, 온도가 오를수록 스펙트럼의 봉우리가 짧은 파장 쪽으로 이동합니다. 빈의 법칙(λ_peak ≈ 2,898 µm·K / T)입니다. 쇠가 어두운 붉은색에서 노란색, 백열로 변하고, 태양은 녹황색에서 정점을 찍는 반면 1,000 K 가열로는 적외선에서 정점을 찍는 이유입니다.
+
+플랑크 법칙은 스펙트럼 전체 곡선을 설명했고, 이를 맞추려면 에너지가 불연속적인 양자 단위여야 했습니다. 양자역학의 출발점입니다. 천문학자들은 이를 우주의 온도계로 씁니다. 별의 색만으로 표면 온도를 알 수 있습니다. 플랜트 가열로의 파이로미터도 멀리서 같은 원리로 온도를 잽니다.
+
+매일 아침, 하나의 주제를 다른 분야의 시선으로.
